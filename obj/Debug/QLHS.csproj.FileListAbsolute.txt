@@ -1,0 +1,58 @@
+D:\Code\CT291\QLHS\bin\Debug\QLHS.exe.config
+D:\Code\CT291\QLHS\bin\Debug\QLHS.exe
+D:\Code\CT291\QLHS\bin\Debug\QLHS.pdb
+D:\Code\CT291\QLHS\obj\Debug\QLHS.csproj.AssemblyReference.cache
+D:\Code\CT291\QLHS\obj\Debug\QLHS.Properties.Resources.resources
+D:\Code\CT291\QLHS\obj\Debug\QLHS.csproj.GenerateResource.cache
+D:\Code\CT291\QLHS\obj\Debug\QLHS.csproj.CoreCompileInputs.cache
+D:\Code\CT291\QLHS\obj\Debug\QLHS.exe
+D:\Code\CT291\QLHS\obj\Debug\QLHS.pdb
+D:\Code\CT291\QLHS\obj\Debug\QLHS.Form_Login.resources
+D:\Code\CT291\QLHS\obj\Debug\QLHS.Form_Home.resources
+D:\Code\CT291\QLHS\obj\Debug\QLHS.Form_Update_ThongTin.resources
+D:\Code\CT291\QLHS\obj\Debug\QLHS.Form_Update_Diem.resources
+D:\Thông Tin Cá Nhân\QLHS\bin\Debug\QLHS.exe.config
+D:\Thông Tin Cá Nhân\QLHS\bin\Debug\QLHS.exe
+D:\Thông Tin Cá Nhân\QLHS\bin\Debug\QLHS.pdb
+D:\Thông Tin Cá Nhân\QLHS\obj\Debug\QLHS.csproj.AssemblyReference.cache
+D:\Thông Tin Cá Nhân\QLHS\obj\Debug\QLHS.Form_Home.resources
+D:\Thông Tin Cá Nhân\QLHS\obj\Debug\QLHS.Form_Login.resources
+D:\Thông Tin Cá Nhân\QLHS\obj\Debug\QLHS.Form_Print.resources
+D:\Thông Tin Cá Nhân\QLHS\obj\Debug\QLHS.Form_Update_Diem.resources
+D:\Thông Tin Cá Nhân\QLHS\obj\Debug\QLHS.Form_Update_ThongTin.resources
+D:\Thông Tin Cá Nhân\QLHS\obj\Debug\QLHS.Properties.Resources.resources
+D:\Thông Tin Cá Nhân\QLHS\obj\Debug\QLHS.csproj.GenerateResource.cache
+D:\Thông Tin Cá Nhân\QLHS\obj\Debug\QLHS.csproj.CoreCompileInputs.cache
+D:\Thông Tin Cá Nhân\QLHS\obj\Debug\QLHS.exe
+D:\Thông Tin Cá Nhân\QLHS\obj\Debug\QLHS.pdb
+D:\Thông Tin Cá Nhân\QLHS\obj\Debug\QLHS.Form_Student.resources
+D:\LTUD\QLHS\bin\Debug\QLHS.exe.config
+D:\LTUD\QLHS\bin\Debug\QLHS.exe
+D:\LTUD\QLHS\bin\Debug\QLHS.pdb
+D:\LTUD\QLHS\obj\Debug\QLHS.csproj.AssemblyReference.cache
+D:\LTUD\QLHS\obj\Debug\QLHS.Form_Home.resources
+D:\LTUD\QLHS\obj\Debug\QLHS.Form_Login.resources
+D:\LTUD\QLHS\obj\Debug\QLHS.Form_Print.resources
+D:\LTUD\QLHS\obj\Debug\QLHS.Form_Student.resources
+D:\LTUD\QLHS\obj\Debug\QLHS.Form_Update_Diem.resources
+D:\LTUD\QLHS\obj\Debug\QLHS.Form_Update_ThongTin.resources
+D:\LTUD\QLHS\obj\Debug\QLHS.Properties.Resources.resources
+D:\LTUD\QLHS\obj\Debug\QLHS.csproj.GenerateResource.cache
+D:\LTUD\QLHS\obj\Debug\QLHS.csproj.CoreCompileInputs.cache
+D:\LTUD\QLHS\obj\Debug\QLHS.exe
+D:\LTUD\QLHS\obj\Debug\QLHS.pdb
+D:\Code\CT291\QLHS_thongtin\QLHS\bin\Debug\QLHS.exe.config
+D:\Code\CT291\QLHS_thongtin\QLHS\bin\Debug\QLHS.exe
+D:\Code\CT291\QLHS_thongtin\QLHS\bin\Debug\QLHS.pdb
+D:\Code\CT291\QLHS_thongtin\QLHS\obj\Debug\QLHS.csproj.AssemblyReference.cache
+D:\Code\CT291\QLHS_thongtin\QLHS\obj\Debug\QLHS.Form_Home.resources
+D:\Code\CT291\QLHS_thongtin\QLHS\obj\Debug\QLHS.Form_Login.resources
+D:\Code\CT291\QLHS_thongtin\QLHS\obj\Debug\QLHS.Form_Print.resources
+D:\Code\CT291\QLHS_thongtin\QLHS\obj\Debug\QLHS.Form_Student.resources
+D:\Code\CT291\QLHS_thongtin\QLHS\obj\Debug\QLHS.Form_Update_Diem.resources
+D:\Code\CT291\QLHS_thongtin\QLHS\obj\Debug\QLHS.Form_Update_ThongTin.resources
+D:\Code\CT291\QLHS_thongtin\QLHS\obj\Debug\QLHS.Properties.Resources.resources
+D:\Code\CT291\QLHS_thongtin\QLHS\obj\Debug\QLHS.csproj.GenerateResource.cache
+D:\Code\CT291\QLHS_thongtin\QLHS\obj\Debug\QLHS.csproj.CoreCompileInputs.cache
+D:\Code\CT291\QLHS_thongtin\QLHS\obj\Debug\QLHS.exe
+D:\Code\CT291\QLHS_thongtin\QLHS\obj\Debug\QLHS.pdb
