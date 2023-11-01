@@ -47,12 +47,10 @@ namespace QLHS
         private void Form_Update_Diem_Load(object sender, EventArgs e)
         {
             ham.connect(conn);
-            ham.HienThiDLDG(dataGridView1, "SELECT D.MaHocSinh, H.HoTen AS HoTenHocSinh, D.MaMon, GV.HoTen AS HoTenGiaoVien, HK.TenHocKy, D.DiemMieng, D.Diem15Phut, D.Diem1Tiet," +
-                " D.DiemThi FROM Diem D JOIN HocSinh H ON D.MaHocSinh = H.MaHocSinh JOIN HocKy HK ON D.MaHocKy = HK.MaHocKy JOIN GiaoVien GV ON D.MaMon = GV.MaMon;", conn);
-            ham.HienThiDLComb(cb_gv, "SELECT MAGIAOVIEN, HoTen FROM GIAOVIEN", conn, "HoTen", "MAGIAOVIEN");
+            ham.HienThiDLDG(dataGridView1, "Select * from Diem", conn);
             ham.HienThiDLComb(cb_hoc_ky, "SELECT MAHOCKY, TENHOCKY FROM HOCKY", conn, "TENHOCKY", "MAHOCKY");
             ham.HienThiDLComb(cb_mon, "SELECT MaMonHoc, TenMonHoc FROM MonHoc", conn, "TenMonHoc", "MaMonHoc");
-            ham.HienThiDLComb(cb_loai_diem, "SELECT MALOAIDiem, TENLOAIDiem FROM LoaiDiem", conn, "TENLOAIDiem", "MALOAIDiem");
+            
 
            
         }
@@ -76,23 +74,86 @@ namespace QLHS
                 }
                 txt_ma_diem.Enabled = false;
             }
+            reader.Close();
+
             string maDiem = txt_ma_diem.Text;
             string maHocSinh = txt_ma_hs.Text;
             string maMon = cb_mon.SelectedValue.ToString();
-            string maGiaoVien = cb_gv.SelectedValue.ToString();
             string maHocKy = cb_hoc_ky.SelectedValue.ToString();
-            string loaiDiem = cb_loai_diem.SelectedValue.ToString();
-            string diem = txt_diem.Text;
+            string diemmieng = txt_mieng.Text;
+            string diem15 = txt_15p.Text;
+            string diem1t = txt_1t.Text;
+            string diemthi= txt_thi.Text;
+            string query = "INSERT INTO Diem VALUES ('" + maDiem + "','" + maHocSinh + "','" + maMon + "','" + maHocKy + "','" + diemmieng + "','" + diem15 + "','" + diem1t + "','" + diemthi + "')";
+            ham.capnhat(query, conn);       
+            ham.HienThiDLDG(dataGridView1, "Select * from Diem", conn);
 
-
-            string query = "INSERT INTO MATHANG VALUES ('" + maDiem + "','" + maHocSinh + "'," + maMon + ",'" + maGiaoVien + "','" + maHocKy + "')";
-            string query2 = "UPDATE Diem SET '"+ loaiDiem + "' = "+ diem + "'";
-
-            ham.capnhat(query, conn);
-            ham.capnhat(query2, conn);
-            ham.HienThiDLDG(dataGridView1, "SELECT D.MaHocSinh, H.HoTen AS HoTenHocSinh, D.MaMon, GV.HoTen AS HoTenGiaoVien, HK.TenHocKy, D.DiemMieng, D.Diem15Phut, D.Diem1Tiet," +
-                " D.DiemThi FROM Diem D JOIN HocSinh H ON D.MaHocSinh = H.MaHocSinh JOIN HocKy HK ON D.MaHocKy = HK.MaHocKy JOIN GiaoVien GV ON D.MaMon = GV.MaMon;", conn);
+            clearALL();
         }
+
+        private void txt_ma_hs_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_ma_diem_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_sua_Click(object sender, EventArgs e)
+        {
+            string maDiem = txt_ma_diem.Text;
+            string maHocSinh = txt_ma_hs.Text;
+            string maMon = cb_mon.SelectedValue.ToString();
+            string maHocKy = cb_hoc_ky.SelectedValue.ToString();
+            string diemmieng = txt_mieng.Text;
+            string diem15 = txt_15p.Text;
+            string diem1t = txt_1t.Text;
+            string diemthi = txt_thi.Text;
+            string query = "UPDATE Diem SET MaHocSinh = '" + maHocSinh + "',MaMon = '" + maMon + "',MaHocKy = '" + maHocKy + "',DiemMieng = '" + diemmieng + "',Diem15Phut = '" + diem15 + "',Diem1Tiet = '" + diem1t + "',DiemThi = '" + diemthi + "' Where MADIEM='" + maDiem + "';";
+            ham.capnhat(query, conn);
+            ham.HienThiDLDG(dataGridView1, "Select * from Diem", conn);
+            clearALL();
+        }
+        private void btn_xoa_Click(object sender, EventArgs e)
+        {
+            string maDiem = txt_ma_diem.Text;
+            string query = "DELETE From Diem Where MaHocSinh = '" + maDiem + "'";
+            ham.capnhat(query, conn);
+            ham.HienThiDLDG(dataGridView1, "Select * from Diem", conn);
+            clearALL();
+        }
+        public void clearALL()
+        {
+            txt_ma_diem.Text = "";
+            txt_ma_hs.Text = "";
+            cb_mon.SelectedValue = "";
+            cb_hoc_ky.SelectedValue = "";
+            txt_mieng.Text = "";
+            txt_15p.Text = "";
+            txt_1t.Text = "";
+            txt_thi.Text = "";
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_ma_diem.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); ;
+            txt_ma_hs.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); ;
+            cb_mon.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(); ;
+            cb_hoc_ky.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(); ;
+            txt_mieng.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString(); ;
+            txt_15p.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString(); ;
+            txt_1t.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString(); ;
+            txt_thi.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString(); ;
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            clearALL();
+        }
+
+       
     }
 }
       

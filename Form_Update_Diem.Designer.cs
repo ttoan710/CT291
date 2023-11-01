@@ -38,9 +38,6 @@ namespace QLHS
             this.label4 = new System.Windows.Forms.Label();
             this.txt_ma_hs = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cb_gv = new System.Windows.Forms.ComboBox();
             this.cb_hoc_ky = new System.Windows.Forms.ComboBox();
             this.btn_sua = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
@@ -48,16 +45,21 @@ namespace QLHS
             this.btn_clear = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txt_diem = new System.Windows.Forms.TextBox();
             this.update = new System.Windows.Forms.ToolStripMenuItem();
             this.update_thongtin = new System.Windows.Forms.ToolStripMenuItem();
             this.update_diem = new System.Windows.Forms.ToolStripMenuItem();
             this.print = new System.Windows.Forms.ToolStripMenuItem();
             this.logout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cb_loai_diem = new System.Windows.Forms.ComboBox();
             this.cb_mon = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_mieng = new System.Windows.Forms.TextBox();
+            this.txt_15p = new System.Windows.Forms.TextBox();
+            this.txt_1t = new System.Windows.Forms.TextBox();
+            this.txt_thi = new System.Windows.Forms.TextBox();
             this.txt_ma_diem = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -104,6 +106,7 @@ namespace QLHS
             this.txt_ma_hs.Name = "txt_ma_hs";
             this.txt_ma_hs.Size = new System.Drawing.Size(155, 21);
             this.txt_ma_hs.TabIndex = 2;
+            this.txt_ma_hs.TextChanged += new System.EventHandler(this.txt_ma_hs_TextChanged);
             // 
             // label5
             // 
@@ -115,38 +118,6 @@ namespace QLHS
             this.label5.Size = new System.Drawing.Size(46, 15);
             this.label5.TabIndex = 1;
             this.label5.Text = "Học Kỳ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(522, 67);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 15);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Loại Điểm";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.Location = new System.Drawing.Point(531, 96);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 15);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Điểm Số";
-            // 
-            // cb_gv
-            // 
-            this.cb_gv.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cb_gv.FormattingEnabled = true;
-            this.cb_gv.Location = new System.Drawing.Point(621, 36);
-            this.cb_gv.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.cb_gv.Name = "cb_gv";
-            this.cb_gv.Size = new System.Drawing.Size(155, 23);
-            this.cb_gv.TabIndex = 4;
             // 
             // cb_hoc_ky
             // 
@@ -167,6 +138,7 @@ namespace QLHS
             this.btn_sua.TabIndex = 6;
             this.btn_sua.Text = "Sửa";
             this.btn_sua.UseVisualStyleBackColor = true;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_them
             // 
@@ -188,6 +160,7 @@ namespace QLHS
             this.btn_xoa.TabIndex = 6;
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_clear
             // 
@@ -198,6 +171,7 @@ namespace QLHS
             this.btn_clear.TabIndex = 6;
             this.btn_clear.Text = "Đặt Lại";
             this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // groupBox1
             // 
@@ -219,15 +193,7 @@ namespace QLHS
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.Size = new System.Drawing.Size(637, 225);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // txt_diem
-            // 
-            this.txt_diem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_diem.Location = new System.Drawing.Point(621, 96);
-            this.txt_diem.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.txt_diem.Name = "txt_diem";
-            this.txt_diem.Size = new System.Drawing.Size(155, 21);
-            this.txt_diem.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // update
             // 
@@ -301,27 +267,6 @@ namespace QLHS
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(522, 39);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 15);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Giáo viên";
-            // 
-            // cb_loai_diem
-            // 
-            this.cb_loai_diem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cb_loai_diem.FormattingEnabled = true;
-            this.cb_loai_diem.Location = new System.Drawing.Point(621, 64);
-            this.cb_loai_diem.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.cb_loai_diem.Name = "cb_loai_diem";
-            this.cb_loai_diem.Size = new System.Drawing.Size(155, 23);
-            this.cb_loai_diem.TabIndex = 4;
-            // 
             // cb_mon
             // 
             this.cb_mon.FormattingEnabled = true;
@@ -329,6 +274,90 @@ namespace QLHS
             this.cb_mon.Name = "cb_mon";
             this.cb_mon.Size = new System.Drawing.Size(155, 21);
             this.cb_mon.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Location = new System.Drawing.Point(530, 26);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Điểm miệng";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label6.Location = new System.Drawing.Point(530, 45);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 15);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Điểm 15 phút";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label7.Location = new System.Drawing.Point(530, 93);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 15);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Điểm thi";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label8.Location = new System.Drawing.Point(530, 71);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 15);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Điểm 1 tiết";
+            // 
+            // txt_mieng
+            // 
+            this.txt_mieng.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_mieng.Location = new System.Drawing.Point(639, 23);
+            this.txt_mieng.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txt_mieng.Name = "txt_mieng";
+            this.txt_mieng.Size = new System.Drawing.Size(155, 21);
+            this.txt_mieng.TabIndex = 2;
+            this.txt_mieng.TextChanged += new System.EventHandler(this.txt_ma_diem_TextChanged);
+            // 
+            // txt_15p
+            // 
+            this.txt_15p.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_15p.Location = new System.Drawing.Point(639, 46);
+            this.txt_15p.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txt_15p.Name = "txt_15p";
+            this.txt_15p.Size = new System.Drawing.Size(155, 21);
+            this.txt_15p.TabIndex = 2;
+            this.txt_15p.TextChanged += new System.EventHandler(this.txt_ma_diem_TextChanged);
+            // 
+            // txt_1t
+            // 
+            this.txt_1t.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_1t.Location = new System.Drawing.Point(639, 68);
+            this.txt_1t.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txt_1t.Name = "txt_1t";
+            this.txt_1t.Size = new System.Drawing.Size(155, 21);
+            this.txt_1t.TabIndex = 2;
+            this.txt_1t.TextChanged += new System.EventHandler(this.txt_ma_diem_TextChanged);
+            // 
+            // txt_thi
+            // 
+            this.txt_thi.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_thi.Location = new System.Drawing.Point(639, 90);
+            this.txt_thi.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txt_thi.Name = "txt_thi";
+            this.txt_thi.Size = new System.Drawing.Size(155, 21);
+            this.txt_thi.TabIndex = 2;
+            this.txt_thi.TextChanged += new System.EventHandler(this.txt_ma_diem_TextChanged);
             // 
             // txt_ma_diem
             // 
@@ -338,6 +367,7 @@ namespace QLHS
             this.txt_ma_diem.Name = "txt_ma_diem";
             this.txt_ma_diem.Size = new System.Drawing.Size(155, 21);
             this.txt_ma_diem.TabIndex = 2;
+            this.txt_ma_diem.TextChanged += new System.EventHandler(this.txt_ma_diem_TextChanged);
             // 
             // Form_Update_Diem
             // 
@@ -345,7 +375,6 @@ namespace QLHS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(864, 399);
             this.Controls.Add(this.cb_mon);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_clear);
@@ -353,15 +382,18 @@ namespace QLHS
             this.Controls.Add(this.btn_them);
             this.Controls.Add(this.btn_sua);
             this.Controls.Add(this.cb_hoc_ky);
-            this.Controls.Add(this.cb_loai_diem);
-            this.Controls.Add(this.cb_gv);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.txt_thi);
+            this.Controls.Add(this.txt_1t);
+            this.Controls.Add(this.txt_15p);
+            this.Controls.Add(this.txt_mieng);
             this.Controls.Add(this.txt_ma_diem);
             this.Controls.Add(this.txt_ma_hs);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txt_diem);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -384,9 +416,6 @@ namespace QLHS
         private Label label4;
         private TextBox txt_ma_hs;
         private Label label5;
-        private Label label6;
-        private Label label7;
-        private ComboBox cb_gv;
         private ComboBox cb_hoc_ky;
         private Button btn_sua;
         private Button btn_them;
@@ -394,16 +423,21 @@ namespace QLHS
         private Button btn_clear;
         private GroupBox groupBox1;
         private DataGridView dataGridView1;
-        private TextBox txt_diem;
         private ToolStripMenuItem update;
         private ToolStripMenuItem update_thongtin;
         private ToolStripMenuItem update_diem;
         private ToolStripMenuItem print;
         private ToolStripMenuItem logout;
         private MenuStrip menuStrip1;
-        private Label label2;
-        private ComboBox cb_loai_diem;
         private ComboBox cb_mon;
+        private Label label2;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private TextBox txt_mieng;
+        private TextBox txt_15p;
+        private TextBox txt_1t;
+        private TextBox txt_thi;
         private TextBox txt_ma_diem;
     }
 }
