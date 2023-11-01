@@ -67,14 +67,19 @@ namespace QLHS
                 // Mở form giáo viên
                 Form_Home form_Home = new Form_Home();
                 form_Home.ShowDialog();
+                
             }
             else
             {
                 // Thông báo thông tin đăng nhập không hợp lệ
                  MessageBox.Show("Invalid username or password. Please try again.");
             }
+            
         }
 
-        
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
