@@ -152,5 +152,17 @@ namespace QLHS
 
 
         }
+
+        private void cb_sex_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_tim_KeyDown(object sender, KeyEventArgs e)
+        {
+            string tuKhoa = txt_tim.Text;
+            string sql_tim = "SELECT * FROM HocSinh WHERE MaHocSinh LIKE '%" + tuKhoa + "%' OR HoTen LIKE '%" + tuKhoa + "%'";
+            ham.HienThiDLDG(dataGridView1, sql_tim, conn);
+        }
     }
 }

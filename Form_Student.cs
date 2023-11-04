@@ -67,14 +67,15 @@ namespace QLHS
             string sql = "SELECT AVG(DiemTrungBinh) AS DiemTrungBinhTong, CASE  WHEN AVG(DiemTrungBinh) >= 9 THEN N'Xuất săc'          WHEN AVG(DiemTrungBinh) >= 8 AND AVG(DiemTrungBinh) <9  THEN N'Giỏi'  WHEN AVG(DiemTrungBinh) >= 7 AND AVG(DiemTrungBinh) <8  THEN N'Khá'   WHEN AVG(DiemTrungBinh) >= 5 AND AVG(DiemTrungBinh) <7  THEN N'Trung bình'           ELSE N'Yếu'      END AS XepLoai FROM (   SELECT (DiemMieng + Diem15Phut + Diem1Tiet + DiemThi) / 4 AS DiemTrungBinh   FROM Diem) AS DiemTrungBinhCacMon;";
             ham.HienThiDLDG(dataGridView_xl, sql,conn);
         }
+       
         private void btn_gui_Click(object sender, EventArgs e)
         {
+
+            string phanHoi = tb_gui.Text;
+            string sql_gui = "UPDATE HocSinh SET PhanHoi = N'" + phanHoi + "'";
+            ham.capnhat(sql_gui, conn);
             MessageBox.Show("Đã gửi thành công");
             tb_gui.Text = "";
-        }
-        private void dataGridView_xl_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
     }
