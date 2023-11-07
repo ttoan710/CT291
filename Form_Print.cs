@@ -34,7 +34,7 @@ namespace QLHS
         private void Form_Print_Load(object sender, EventArgs e)
         {
             ham.connect(conn);
-            string sql = "SELECT Diem.MaHocSinh, HocSinh.HoTen, AVG(DiemTrungBinh) AS MaHocSinhDiemTrungBinhTong,     CASE       WHEN AVG(DiemTrungBinh) >= 9 THEN N'Xuất săc'         WHEN AVG(DiemTrungBinh) >= 8 AND AVG(DiemTrungBinh) < 9 THEN N'Giỏi'        WHEN AVG(DiemTrungBinh) >= 7 AND AVG(DiemTrungBinh) < 8 THEN N'Khá'          WHEN AVG(DiemTrungBinh) >= 5 AND AVG(DiemTrungBinh) < 7 THEN N'Trung bình'                 ELSE N'Yếu'         END AS XepLoai FROM (  SELECT (DiemMieng + Diem15Phut + Diem1Tiet + DiemThi) / 4 AS DiemTrungBinh, Diem.MaHocSinh, HocSinh.HoTen    FROM Diem   JOIN HocSinh ON Diem.MaHocSinh = HocSinh.MaHocSinh) AS DiemTrungBinhCacMon, Diem,HocSinh where Diem.MaHocSinh = HocSinh.MaHocSinh GROUP BY Diem.MaHocSinh, HocSinh.HoTen;";
+            string sql = "SELECT ROUND(AVG(DiemTrungBinh), 2) AS DiemTrungBinhTong,    CASE       WHEN ROUND(AVG(DiemTrungBinh), 2) >= 9 THEN N'Xuất sắc'      WHEN ROUND(AVG(DiemTrungBinh), 2) >= 8 AND ROUND(AVG(DiemTrungBinh), 2) < 9 THEN N'Giỏi'       WHEN ROUND(AVG(DiemTrungBinh), 2) >= 7 AND ROUND(AVG(DiemTrungBinh), 2) < 8 THEN N'Khá'      WHEN ROUND(AVG(DiemTrungBinh), 2) >= 5 AND ROUND(AVG(DiemTrungBinh), 2) < 7 THEN N'Trung bình'       ELSE N'Yếu'   END AS XepLoai FROM (    SELECT (DiemMieng + Diem15Phut + Diem1Tiet * 2 + DiemThi * 3) / 7 AS DiemTrungBinh   FROM Diem   WHERE Diem.MaHocKy = 'HK001') AS HK1;";
             ham.HienThiDLDG(dataGridView1, sql, conn);
         }
     }

@@ -14,7 +14,7 @@ namespace QLHS
         {
             if (conn.State != ConnectionState.Open)
             {
-                string chuoiketnoi = "SERVER=asus; database=QuanLiDiem; Integrated Security=true";
+                string chuoiketnoi = "SERVER=OLONG-TEA-PLUS; database=QuanLiDiem; Integrated Security=true";
                 conn.ConnectionString = chuoiketnoi;
                 conn.Open();
             }
@@ -53,12 +53,7 @@ namespace QLHS
                 MessageBox.Show("your query is :" + sql + " with the error is " + e.Message);
             }
         }
-        private void LoadGioiTinhToComboBox(ComboBox combo)
-        {
-            // Thêm các giá trị "Nam" và "Nữ" vào ComboBox
-            combo.Items.Add("Nam");
-            combo.Items.Add("Nữ");
-        }
+       
 
        
     }

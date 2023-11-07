@@ -23,7 +23,7 @@ namespace QLHS
 
         private void btn_login_Click_1(object sender, EventArgs e)
         {
-            string username = txt_username.Text;
+            string username = txt_username.Text.ToUpper();
             string password = txt_password.Text;
 
             string role = "";
@@ -60,12 +60,15 @@ namespace QLHS
             {
                 // Mở form sinh viên
                 Form_Student form_Student = new Form_Student(username);
+                this.Hide();
                 form_Student.ShowDialog();
+                
             }
             else if (role == "teacher")
             {
                 // Mở form giáo viên
                 Form_Home form_Home = new Form_Home();
+                this.Hide();
                 form_Home.ShowDialog();
                 
             }
@@ -76,10 +79,15 @@ namespace QLHS
             }
             
         }
-
+       
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Liên hệ GVCN để được sử lý");
         }
     }
 }

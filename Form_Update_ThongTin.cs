@@ -31,6 +31,7 @@ namespace QLHS
         private void logout_Click(object sender, EventArgs e)
         {
             Form_Home hom = new Form_Home();
+            this.Hide();
             hom.ShowDialog();
         }
 
@@ -79,6 +80,7 @@ namespace QLHS
             string sql_tim = "SELECT * FROM HocSinh WHERE MaHocSinh LIKE '%" + tuKhoa + "%' OR HoTen LIKE '%" + tuKhoa + "%'";
             ham.HienThiDLDG(dataGridView1, sql_tim, conn);
         }
+
         private void LoadGioiTinhToComboBox()
         {
             cb_sex.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -90,19 +92,27 @@ namespace QLHS
 
         private void btn_them_Click(object sender, EventArgs e)
         {
+            string gioitinh = cb_sex.Text;
+            string ma = txt_ma_hs.Text;
+            string ten = txt_ten_hs.Text;
+            string malop = cb_ma_lop.SelectedValue.ToString();
+            string matkhau = txt_mat_khau.Text;
 
-            // chỉnh sửa cột giới tính .text 
-             string gioitinh = cb_sex.Text;
-             string ma = txt_ma_hs.Text;
-             string ten = txt_ten_hs.Text;
-             string malop = cb_ma_lop.SelectedValue.ToString();
-             string matkhau = txt_mat_khau.Text;
-             string sql_them = "INSERT INTO HocSinh VALUES ('" + ma + "', N'" + ten + "', '" + date_ngay_sinh.Value.ToString("yyyy-MM-dd") + "', N'" + gioitinh + "', '" + malop + "', '" + matkhau + "')";
-             ham.capnhat(sql_them, conn);
-             ham.HienThiDLDG(dataGridView1, "SELECT * FROM HocSinh", conn);
-            
+            // Kiểm tra xem học sinh đã tồn tại trong cơ sở dữ liệu chưa
+            string checkQuery = $"SELECT COUNT(*) FROM HocSinh WHERE MaHocSinh = '{ma}' OR HoTen = '{ten}' ";
+            SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+            int existingCount = (int)checkCmd.ExecuteScalar();
 
-           
+            if (existingCount > 0)
+            {
+                MessageBox.Show("Học sinh đã tồn tại trong cơ sở dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string sql_them = "INSERT INTO HocSinh VALUES ('" + ma + "', N'" + ten + "', '" + date_ngay_sinh.Value.ToString("yyyy-MM-dd") + "', N'" + gioitinh + "', '" + malop + "', '" + matkhau + "')";
+
+            ham.capnhat(sql_them, conn);
+            ham.HienThiDLDG(dataGridView1, "SELECT * FROM HocSinh", conn);
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
@@ -132,13 +142,8 @@ namespace QLHS
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            btn_them.Enabled = false;
-            btn_sua.Enabled = true;
-            btn_xoa.Enabled = true;
-            //
-            string date = date_ngay_sinh.Value.ToString("yyyy-MM-dd");
-
-            //string sex =cb_sex.SelectedValue.ToString();
+          
+            string date = date_ngay_sinh.Value.ToString("yyyy-MM-dd");      
             string lop = cb_ma_lop.SelectedValue.ToString();
             txt_ma_hs.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             txt_ten_hs.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -146,10 +151,6 @@ namespace QLHS
             cb_sex.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             lop = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             txt_mat_khau.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-           
-           
-            
-
 
         }
 
@@ -163,6 +164,11 @@ namespace QLHS
             string tuKhoa = txt_tim.Text;
             string sql_tim = "SELECT * FROM HocSinh WHERE MaHocSinh LIKE '%" + tuKhoa + "%' OR HoTen LIKE '%" + tuKhoa + "%'";
             ham.HienThiDLDG(dataGridView1, sql_tim, conn);
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

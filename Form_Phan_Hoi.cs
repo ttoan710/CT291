@@ -16,5 +16,10 @@ namespace QLHS
         {
             InitializeComponent();
         }
+
+        private void Form_Phan_Hoi_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

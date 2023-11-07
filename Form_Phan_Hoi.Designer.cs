@@ -42,7 +42,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(705, 239);
             this.dataGridView1.TabIndex = 0;
-            //this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label2
             // 
@@ -62,7 +61,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form_Phan_Hoi";
             this.Text = "Form_Phan_Hoi";
-            //this.Load += new System.EventHandler(this.Form_Phan_Hoi_Load);
+            this.Load += new System.EventHandler(this.Form_Phan_Hoi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

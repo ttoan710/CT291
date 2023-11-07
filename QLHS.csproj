@@ -98,6 +98,9 @@
     <EmbeddedResource Include="Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Phan_Hoi.resx">
+      <DependentUpon>Form_Phan_Hoi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Print.resx">
       <DependentUpon>Form_Print.cs</DependentUpon>
     </EmbeddedResource>
