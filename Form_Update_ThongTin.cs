@@ -23,55 +23,13 @@ namespace QLHS
             InitializeComponent();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void logout_Click(object sender, EventArgs e)
-        {
-            Form_Home hom = new Form_Home();
-            this.Hide();
-            hom.ShowDialog();
-        }
-
-        private void print_Click(object sender, EventArgs e)
-        {
-            Form_Print p = new Form_Print();
-            p.ShowDialog();
-        }
-
-        private void update_diem_Click(object sender, EventArgs e)
-        {
-            Form_Update_Diem d = new Form_Update_Diem();
-            d.ShowDialog();
-        }
+       
         private void Form_Update_ThongTin_Load(object sender, EventArgs e)
         {
             ham.connect(conn);
             ham.HienThiDLDG(dataGridView1, "SELECT * FROM HocSinh", conn);
             ham.HienThiDLComb(cb_ma_lop, "SELECT TenLop, MALOP FROM Lop", conn, "TenLop", "MALOP");
             LoadGioiTinhToComboBox();
-
-            string malonnhat = "SELECT MAX (SUBSTRING(MaHocSinh,5,2)) FROM HocSinh";
-            SqlCommand comd = new SqlCommand(malonnhat, conn);
-            SqlDataReader reader = comd.ExecuteReader();
-
-            if (reader.Read())
-            {
-                int max = Convert.ToInt16(reader.GetValue(0).ToString()) + 1;
-                if (max < 10)
-                {
-                    txt_ma_hs.Text = "HS00" + max;
-                }
-                else
-                {
-                    txt_ma_hs.Text = "HS0" + max;
-                }
-                txt_ma_hs.Enabled = false;
-            }
-            reader.Close();
-
 
         }
         private void txt_tim_TextChanged(object sender, EventArgs e)
@@ -92,6 +50,24 @@ namespace QLHS
 
         private void btn_them_Click(object sender, EventArgs e)
         {
+            string malonnhat = "SELECT MAX (SUBSTRING(MaHocSinh,5,2)) FROM HocSinh";
+            SqlCommand comd = new SqlCommand(malonnhat, conn);
+            SqlDataReader reader = comd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                int max = Convert.ToInt16(reader.GetValue(0).ToString()) + 1;
+                if (max < 10)
+                {
+                    txt_ma_hs.Text = "HS00" + max;
+                }
+                else
+                {
+                    txt_ma_hs.Text = "HS0" + max;
+                }
+                txt_ma_hs.Enabled = false;
+            }
+            reader.Close();
             string gioitinh = cb_sex.Text;
             string ma = txt_ma_hs.Text;
             string ten = txt_ten_hs.Text;
@@ -128,6 +104,10 @@ namespace QLHS
             ham.HienThiDLDG(dataGridView1, "SELECT * FROM HocSinh", conn);
             btn_them.Enabled = true;
         }
+        private void btn_dat_Click(object sender, EventArgs e)
+        {
+            clearALL();
+        }
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
@@ -142,8 +122,9 @@ namespace QLHS
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          
-            string date = date_ngay_sinh.Value.ToString("yyyy-MM-dd");      
+
+            //string date = date_ngay_sinh.Value.ToString("yyyy-MM-dd");
+            string date = date_ngay_sinh.Text;
             string lop = cb_ma_lop.SelectedValue.ToString();
             txt_ma_hs.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             txt_ten_hs.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -158,6 +139,16 @@ namespace QLHS
         {
 
         }
+        private void clearALL()
+        {
+            cb_ma_lop.Text = "";
+            txt_ma_hs.Text = "";
+            txt_ten_hs.Text = "";
+            txt_mat_khau.Text = "";
+            cb_sex.Text = "";
+            date_ngay_sinh.Value = new DateTime(2000, 1, 1);
+
+        }
 
         private void txt_tim_KeyDown(object sender, KeyEventArgs e)
         {
@@ -167,6 +158,11 @@ namespace QLHS
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }

@@ -28,8 +28,8 @@ namespace QLHS
             dg.DataSource = dataset;
             dg.DataMember = "new data";
         }
-        
-        public void HienThiDLComb(ComboBox comb, string sql, SqlConnection conn, string   hienthi, string giatri)
+
+        public void HienThiDLComb(ComboBox comb, string sql, SqlConnection conn, string hienthi, string giatri)
         {
             SqlCommand comd = new SqlCommand(sql, conn);
             SqlDataReader reader = comd.ExecuteReader();
@@ -53,8 +53,8 @@ namespace QLHS
                 MessageBox.Show("your query is :" + sql + " with the error is " + e.Message);
             }
         }
-       
 
-       
+
+
     }
 }

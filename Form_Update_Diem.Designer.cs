@@ -60,6 +60,7 @@ namespace QLHS
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txt_tim = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -343,6 +344,7 @@ namespace QLHS
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.txt_tim);
             this.groupBox3.Location = new System.Drawing.Point(23, 19);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
@@ -362,6 +364,17 @@ namespace QLHS
             this.label1.Size = new System.Drawing.Size(393, 40);
             this.label1.TabIndex = 2;
             this.label1.Text = "Cập Nhật Điểm Học Sinh";
+            // 
+            // txt_tim
+            // 
+            this.txt_tim.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_tim.Location = new System.Drawing.Point(647, 16);
+            this.txt_tim.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txt_tim.Name = "txt_tim";
+            this.txt_tim.Size = new System.Drawing.Size(117, 21);
+            this.txt_tim.TabIndex = 4;
+            this.txt_tim.Text = "Nhập tên cần tìm";
+            this.txt_tim.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_tim_KeyDown);
             // 
             // Form_Update_Diem
             // 
@@ -414,5 +427,6 @@ namespace QLHS
         private Label label8;
         private Button button5;
         private ComboBox cb_mahs;
+        private TextBox txt_tim;
     }
 }

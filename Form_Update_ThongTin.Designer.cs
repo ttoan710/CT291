@@ -44,6 +44,7 @@ namespace QLHS
             this.cb_ma_lop = new System.Windows.Forms.ComboBox();
             this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
+            this.btn_dat = new System.Windows.Forms.Button();
             this.btn_sua = new System.Windows.Forms.Button();
             this.date_ngay_sinh = new System.Windows.Forms.DateTimePicker();
             this.txt_mat_khau = new System.Windows.Forms.TextBox();
@@ -88,6 +89,7 @@ namespace QLHS
             this.groupBox1.Size = new System.Drawing.Size(500, 355);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
+       //     this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button1
             // 
@@ -99,7 +101,7 @@ namespace QLHS
             this.button1.Size = new System.Drawing.Size(53, 47);
             this.button1.TabIndex = 35;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.logout_Click);
+           // this.button1.Click += new System.EventHandler(this.logout_Click);
             // 
             // pictureBox1
             // 
@@ -130,6 +132,7 @@ namespace QLHS
             this.groupBox2.Controls.Add(this.cb_ma_lop);
             this.groupBox2.Controls.Add(this.btn_xoa);
             this.groupBox2.Controls.Add(this.btn_them);
+            this.groupBox2.Controls.Add(this.btn_dat);
             this.groupBox2.Controls.Add(this.btn_sua);
             this.groupBox2.Controls.Add(this.date_ngay_sinh);
             this.groupBox2.Controls.Add(this.txt_mat_khau);
@@ -192,6 +195,17 @@ namespace QLHS
             this.btn_them.Text = "Thêm ";
             this.btn_them.UseVisualStyleBackColor = true;
             this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
+            // 
+            // btn_dat
+            // 
+            this.btn_dat.Location = new System.Drawing.Point(89, 272);
+            this.btn_dat.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btn_dat.Name = "btn_dat";
+            this.btn_dat.Size = new System.Drawing.Size(69, 23);
+            this.btn_dat.TabIndex = 27;
+            this.btn_dat.Text = "Đặt lại";
+            this.btn_dat.UseVisualStyleBackColor = true;
+            this.btn_dat.Click += new System.EventHandler(this.btn_dat_Click);
             // 
             // btn_sua
             // 
@@ -384,5 +398,6 @@ namespace QLHS
         private GroupBox groupBox3;
         private Label label1;
         private Button button1;
+        private Button btn_dat;
     }
 }

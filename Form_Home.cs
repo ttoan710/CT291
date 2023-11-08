@@ -34,7 +34,7 @@ namespace QLHS
 
         private void update_diem_Click(object sender, EventArgs e)
         {
-            Form_Update_Diem form_Update_Diem = new Form_Update_Diem();
+            Form_Update_Diem form_Update_Diem = new Form_Update_Diem("");
             this.Hide();
             form_Update_Diem.ShowDialog();
         }

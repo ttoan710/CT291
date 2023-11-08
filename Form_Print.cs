@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace QLHS
 {
@@ -34,8 +35,8 @@ namespace QLHS
         private void Form_Print_Load(object sender, EventArgs e)
         {
             ham.connect(conn);
-            string sql = "SELECT ROUND(AVG(DiemTrungBinh), 2) AS DiemTrungBinhTong,    CASE       WHEN ROUND(AVG(DiemTrungBinh), 2) >= 9 THEN N'Xuất sắc'      WHEN ROUND(AVG(DiemTrungBinh), 2) >= 8 AND ROUND(AVG(DiemTrungBinh), 2) < 9 THEN N'Giỏi'       WHEN ROUND(AVG(DiemTrungBinh), 2) >= 7 AND ROUND(AVG(DiemTrungBinh), 2) < 8 THEN N'Khá'      WHEN ROUND(AVG(DiemTrungBinh), 2) >= 5 AND ROUND(AVG(DiemTrungBinh), 2) < 7 THEN N'Trung bình'       ELSE N'Yếu'   END AS XepLoai FROM (    SELECT (DiemMieng + Diem15Phut + Diem1Tiet * 2 + DiemThi * 3) / 7 AS DiemTrungBinh   FROM Diem   WHERE Diem.MaHocKy = 'HK001') AS HK1;";
-            ham.HienThiDLDG(dataGridView1, sql, conn);
+           // string sql = "SELECT  HocSinh.HoTen     MonHoc.TenMonHoc,    HocKy.TenHocKy,   Diem.DiemMieng,      Diem.Diem15Phut,       Diem.Diem1Tiet,      Diem.DiemThi,        ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh FROM Diem INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc,HocKy  WHERE Diem.MaHocKy = HocKy.MaHocKy AND  Diem.MaHocKy = 'HK001' OR  Diem.MaHocKy = 'HK002' GROUP BY Diem.MaDiem, MonHoc.TenMonHoc, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi, HocKy.TenHocKy ORDER BY  HocKy.TenHocKy;";
+          //  ham.HienThiDLDG(dataGridView1, sql, conn);
         }
     }
 }
