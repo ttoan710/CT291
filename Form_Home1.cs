@@ -50,7 +50,8 @@ namespace QLHS
 
         private void print_Click(object sender, EventArgs e)
         {
-            Form_Print form_Print = new Form_Print();
+            Form_Print form_Print = new Form_Print(teacherName);
+            Form_Home1.IsFormOpenedFromHome1 = true;
             this.Hide();
             form_Print.ShowDialog();
         }

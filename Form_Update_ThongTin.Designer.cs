@@ -89,7 +89,7 @@ namespace QLHS
             this.groupBox1.Size = new System.Drawing.Size(500, 355);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-       //     this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button1
             // 
@@ -101,7 +101,6 @@ namespace QLHS
             this.button1.Size = new System.Drawing.Size(53, 47);
             this.button1.TabIndex = 35;
             this.button1.UseVisualStyleBackColor = true;
-           // this.button1.Click += new System.EventHandler(this.logout_Click);
             // 
             // pictureBox1
             // 

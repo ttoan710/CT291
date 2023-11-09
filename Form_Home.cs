@@ -41,7 +41,7 @@ namespace QLHS
 
         private void print_Click(object sender, EventArgs e)
         {
-            Form_Print form_Print = new Form_Print();
+            Form_Print form_Print = new Form_Print("");
             this.Hide();
             form_Print.ShowDialog();
         }

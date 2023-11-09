@@ -112,5 +112,19 @@ namespace QLHS
         {
             MessageBox.Show("Liên hệ GVCN để được sử lý");
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                // Hiển thị mật khẩu
+                txt_password.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                // Ẩn mật khẩu
+                txt_password.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

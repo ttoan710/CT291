@@ -27,17 +27,12 @@ namespace QLHS
         private void Form_Update_ThongTin_Load(object sender, EventArgs e)
         {
             ham.connect(conn);
-            ham.HienThiDLDG(dataGridView1, "SELECT * FROM HocSinh", conn);
+            ham.HienThiDLDG(dataGridView1, "SELECT distinct hs.MaHocSinh,hs.HoTen, hs.NgaySinh, hs.GioiTinh, l.TenLop, hs.MatKhau FROM HocSinh hs, Lop l Where hs.MaLop = l.MaLop", conn);
             ham.HienThiDLComb(cb_ma_lop, "SELECT TenLop, MALOP FROM Lop", conn, "TenLop", "MALOP");
             LoadGioiTinhToComboBox();
 
         }
-        private void txt_tim_TextChanged(object sender, EventArgs e)
-        {
-            string tuKhoa = txt_tim.Text;
-            string sql_tim = "SELECT * FROM HocSinh WHERE MaHocSinh LIKE '%" + tuKhoa + "%' OR HoTen LIKE '%" + tuKhoa + "%'";
-            ham.HienThiDLDG(dataGridView1, sql_tim, conn);
-        }
+      
 
         private void LoadGioiTinhToComboBox()
         {
@@ -125,12 +120,12 @@ namespace QLHS
 
             //string date = date_ngay_sinh.Value.ToString("yyyy-MM-dd");
             string date = date_ngay_sinh.Text;
-            string lop = cb_ma_lop.SelectedValue.ToString();
+           
             txt_ma_hs.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             txt_ten_hs.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             date = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             cb_sex.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            lop = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            cb_ma_lop.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             txt_mat_khau.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
 
         }
@@ -152,9 +147,11 @@ namespace QLHS
 
         private void txt_tim_KeyDown(object sender, KeyEventArgs e)
         {
-            string tuKhoa = txt_tim.Text;
-            string sql_tim = "SELECT * FROM HocSinh WHERE MaHocSinh LIKE '%" + tuKhoa + "%' OR HoTen LIKE '%" + tuKhoa + "%'";
-            ham.HienThiDLDG(dataGridView1, sql_tim, conn);
+            if (e.KeyCode == Keys.Enter) { 
+                string tuKhoa = txt_tim.Text;
+                string sql_tim = "SELECT DISTINCT hs.MaHocSinh, hs.HoTen, hs.NgaySinh, hs.GioiTinh, l.TenLop, hs.MatKhau FROM HocSinh hs, Lop l WHERE hs.MaLop = l.MaLop AND (hs.MaHocSinh LIKE '%" + tuKhoa + "%' OR hs.HoTen LIKE '%" + tuKhoa + "%' OR l.TenLop LIKE '%" + tuKhoa + "%') ";
+                ham.HienThiDLDG(dataGridView1, sql_tim, conn);
+            }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -163,6 +160,11 @@ namespace QLHS
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

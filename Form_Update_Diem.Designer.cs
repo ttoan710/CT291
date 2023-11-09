@@ -107,10 +107,10 @@ namespace QLHS
             // txt_ma_diem
             // 
             this.txt_ma_diem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_ma_diem.Location = new System.Drawing.Point(87, 8);
+            this.txt_ma_diem.Location = new System.Drawing.Point(125, 8);
             this.txt_ma_diem.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txt_ma_diem.Name = "txt_ma_diem";
-            this.txt_ma_diem.Size = new System.Drawing.Size(155, 21);
+            this.txt_ma_diem.Size = new System.Drawing.Size(117, 21);
             this.txt_ma_diem.TabIndex = 0;
             // 
             // groupBox2
