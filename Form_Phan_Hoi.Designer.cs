@@ -42,7 +42,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(52, 59);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(705, 239);
+            this.dataGridView1.Size = new System.Drawing.Size(705, 246);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -57,7 +57,7 @@
             // 
             // txt_ma
             // 
-            this.txt_ma.Location = new System.Drawing.Point(52, 314);
+            this.txt_ma.Location = new System.Drawing.Point(566, 325);
             this.txt_ma.Name = "txt_ma";
             this.txt_ma.Size = new System.Drawing.Size(100, 20);
             this.txt_ma.TabIndex = 3;
@@ -65,7 +65,7 @@
             // 
             // btn_xoa
             // 
-            this.btn_xoa.Location = new System.Drawing.Point(171, 312);
+            this.btn_xoa.Location = new System.Drawing.Point(682, 325);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(75, 23);
             this.btn_xoa.TabIndex = 5;
@@ -77,7 +77,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 370);
             this.Controls.Add(this.btn_xoa);
             this.Controls.Add(this.txt_ma);
             this.Controls.Add(this.label2);

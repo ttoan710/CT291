@@ -101,6 +101,7 @@ namespace QLHS
             this.button1.Size = new System.Drawing.Size(53, 47);
             this.button1.TabIndex = 35;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -151,7 +152,6 @@ namespace QLHS
             this.groupBox2.Size = new System.Drawing.Size(262, 329);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // cb_sex
             // 
@@ -161,7 +161,6 @@ namespace QLHS
             this.cb_sex.Size = new System.Drawing.Size(136, 23);
             this.cb_sex.TabIndex = 23;
             this.cb_sex.Text = "Nam / Nữ";
-            this.cb_sex.SelectedIndexChanged += new System.EventHandler(this.cb_sex_SelectedIndexChanged);
             // 
             // cb_ma_lop
             // 

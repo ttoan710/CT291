@@ -59,6 +59,12 @@
     <Compile Include="Form_Home1.Designer.cs">
       <DependentUpon>Form_Home1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Lich_Giang_Day.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Lich_Giang_Day.Designer.cs">
+      <DependentUpon>Form_Lich_Giang_Day.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Home1.resx">
       <DependentUpon>Form_Home1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Lich_Giang_Day.resx">
+      <DependentUpon>Form_Lich_Giang_Day.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>

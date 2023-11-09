@@ -133,5 +133,12 @@ namespace QLHS
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form_Lich_Giang_Day d = new Form_Lich_Giang_Day();
+            this.Hide();
+            d.ShowDialog();
+        }
     }
 }

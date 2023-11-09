@@ -80,11 +80,9 @@ namespace QLHS
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Info;
-            this.groupBox1.Location = new System.Drawing.Point(239, 121);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(358, 182);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(546, 302);
+            this.groupBox1.Size = new System.Drawing.Size(819, 453);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -92,10 +90,9 @@ namespace QLHS
             // 
             this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button6.Location = new System.Drawing.Point(403, 169);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Location = new System.Drawing.Point(604, 254);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(87, 89);
+            this.button6.Size = new System.Drawing.Size(130, 134);
             this.button6.TabIndex = 10;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.logout_Click_1);
@@ -104,10 +101,9 @@ namespace QLHS
             // 
             this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.Location = new System.Drawing.Point(236, 169);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Location = new System.Drawing.Point(354, 254);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(87, 89);
+            this.button5.Size = new System.Drawing.Size(130, 134);
             this.button5.TabIndex = 10;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -116,21 +112,20 @@ namespace QLHS
             // 
             this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.Location = new System.Drawing.Point(67, 169);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Location = new System.Drawing.Point(100, 254);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(87, 89);
+            this.button4.Size = new System.Drawing.Size(130, 134);
             this.button4.TabIndex = 10;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Location = new System.Drawing.Point(67, 40);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(100, 60);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 89);
+            this.button1.Size = new System.Drawing.Size(130, 134);
             this.button1.TabIndex = 10;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.update_thongtin_Click);
@@ -139,10 +134,9 @@ namespace QLHS
             // 
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Location = new System.Drawing.Point(403, 40);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Location = new System.Drawing.Point(604, 60);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 89);
+            this.button3.Size = new System.Drawing.Size(130, 134);
             this.button3.TabIndex = 10;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.print_Click);
@@ -151,10 +145,9 @@ namespace QLHS
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Location = new System.Drawing.Point(236, 40);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Location = new System.Drawing.Point(354, 60);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 89);
+            this.button2.Size = new System.Drawing.Size(130, 134);
             this.button2.TabIndex = 10;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.update_diem_Click);
@@ -164,10 +157,9 @@ namespace QLHS
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label2.ForeColor = System.Drawing.SystemColors.Info;
-            this.label2.Location = new System.Drawing.Point(400, 131);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(600, 196);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 17);
+            this.label2.Size = new System.Drawing.Size(141, 23);
             this.label2.TabIndex = 9;
             this.label2.Text = "Bảng Điểm Lớp";
             // 
@@ -176,10 +168,9 @@ namespace QLHS
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.ForeColor = System.Drawing.SystemColors.Info;
-            this.label1.Location = new System.Drawing.Point(223, 131);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(334, 196);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 17);
+            this.label1.Size = new System.Drawing.Size(171, 23);
             this.label1.TabIndex = 9;
             this.label1.Text = "Thông Tin Điểm Số";
             // 
@@ -188,10 +179,9 @@ namespace QLHS
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label5.ForeColor = System.Drawing.SystemColors.Info;
-            this.label5.Location = new System.Drawing.Point(379, 259);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(568, 388);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 17);
+            this.label5.Size = new System.Drawing.Size(199, 23);
             this.label5.TabIndex = 9;
             this.label5.Text = "Thay Đổi Người Dùng ";
             // 
@@ -200,10 +190,9 @@ namespace QLHS
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label4.ForeColor = System.Drawing.SystemColors.Info;
-            this.label4.Location = new System.Drawing.Point(211, 259);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(316, 388);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 17);
+            this.label4.Size = new System.Drawing.Size(206, 23);
             this.label4.TabIndex = 9;
             this.label4.Text = "Phản Hồi Của Học Sinh";
             // 
@@ -212,10 +201,9 @@ namespace QLHS
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.SystemColors.Info;
-            this.label3.Location = new System.Drawing.Point(53, 259);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(80, 388);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 17);
+            this.label3.Size = new System.Drawing.Size(185, 23);
             this.label3.TabIndex = 9;
             this.label3.Text = "Xem Lịch Giảng Dạy";
             // 
@@ -224,10 +212,9 @@ namespace QLHS
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label6.ForeColor = System.Drawing.SystemColors.Info;
-            this.label6.Location = new System.Drawing.Point(53, 131);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(80, 196);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 17);
+            this.label6.Size = new System.Drawing.Size(176, 23);
             this.label6.TabIndex = 9;
             this.label6.Text = "Thông Tin Học Sinh";
             // 
@@ -237,11 +224,9 @@ namespace QLHS
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.listBox2);
             this.groupBox2.Controls.Add(this.listBox1);
-            this.groupBox2.Location = new System.Drawing.Point(18, 121);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(27, 182);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(199, 302);
+            this.groupBox2.Size = new System.Drawing.Size(298, 453);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
@@ -250,21 +235,17 @@ namespace QLHS
             this.groupBox4.BackColor = System.Drawing.Color.AliceBlue;
             this.groupBox4.Controls.Add(this.groupBox5);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Location = new System.Drawing.Point(10, 122);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Location = new System.Drawing.Point(15, 183);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox4.Size = new System.Drawing.Size(177, 163);
+            this.groupBox4.Size = new System.Drawing.Size(266, 244);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             // 
             // groupBox5
             // 
-            this.groupBox5.Location = new System.Drawing.Point(21, 39);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Location = new System.Drawing.Point(32, 58);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox5.Size = new System.Drawing.Size(126, 94);
+            this.groupBox5.Size = new System.Drawing.Size(189, 141);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             // 
@@ -273,10 +254,9 @@ namespace QLHS
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(4, 15);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(6, 22);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 17);
+            this.label8.Size = new System.Drawing.Size(89, 25);
             this.label8.TabIndex = 0;
             this.label8.Text = "Chú ý !!";
             // 
@@ -287,11 +267,10 @@ namespace QLHS
             this.listBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox2.FormatString = "D";
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 19;
-            this.listBox2.Location = new System.Drawing.Point(10, 58);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox2.ItemHeight = 27;
+            this.listBox2.Location = new System.Drawing.Point(15, 87);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(178, 4);
+            this.listBox2.Size = new System.Drawing.Size(265, 31);
             this.listBox2.TabIndex = 10;
             // 
             // listBox1
@@ -300,11 +279,10 @@ namespace QLHS
             this.listBox1.Enabled = false;
             this.listBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 35;
-            this.listBox1.Location = new System.Drawing.Point(10, 17);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox1.ItemHeight = 52;
+            this.listBox1.Location = new System.Drawing.Point(15, 26);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(178, 39);
+            this.listBox1.Size = new System.Drawing.Size(265, 56);
             this.listBox1.TabIndex = 10;
             // 
             // groupBox3
@@ -312,21 +290,18 @@ namespace QLHS
             this.groupBox3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.groupBox3.Controls.Add(this.btn_color);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(18, 8);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Location = new System.Drawing.Point(27, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(767, 92);
+            this.groupBox3.Size = new System.Drawing.Size(1150, 138);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // btn_color
             // 
-            this.btn_color.Location = new System.Drawing.Point(651, 41);
-            this.btn_color.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_color.Location = new System.Drawing.Point(976, 62);
             this.btn_color.Name = "btn_color";
-            this.btn_color.Size = new System.Drawing.Size(80, 34);
+            this.btn_color.Size = new System.Drawing.Size(120, 51);
             this.btn_color.TabIndex = 10;
             this.btn_color.Text = "Giao Diện Sáng";
             this.btn_color.UseVisualStyleBackColor = true;
@@ -338,24 +313,23 @@ namespace QLHS
             this.label7.BackColor = System.Drawing.Color.LightSkyBlue;
             this.label7.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.Info;
-            this.label7.Location = new System.Drawing.Point(250, 28);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(375, 42);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(259, 39);
+            this.label7.Size = new System.Drawing.Size(388, 57);
             this.label7.TabIndex = 9;
             this.label7.Text = "Quản Lý Học Sinh ";
             this.label7.UseCompatibleTextRendering = true;
             // 
             // Form_Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(793, 459);
+            this.ClientSize = new System.Drawing.Size(1190, 688);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form_Home";
             this.Text = "Trang Chủ";
             this.Load += new System.EventHandler(this.Form_Home_Load);

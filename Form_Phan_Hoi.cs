@@ -23,7 +23,10 @@ namespace QLHS
         private void Form_Phan_Hoi_Load(object sender, EventArgs e)
         {
             ham.connect(conn);
-            ham.HienThiDLDG(dataGridView1, " select ph.MaPhanHoi,  hs.HoTen,l.tenlop, ph.PhanHoi from Lop l, PhanHoi ph, HocSinh hs where hs.MaHocSinh = ph.MaHocSinh And hs.MaLop = l.MaLop", conn);
+            ham.HienThiDLDG(dataGridView1, " select ph.MaPhanHoi,  hs.HoTen, l.tenlop, ph.PhanHoi " +
+                "from Lop l, PhanHoi ph, HocSinh hs " +
+                "where hs.MaHocSinh = ph.MaHocSinh " +
+                "And hs.MaLop = l.MaLop", conn);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -41,7 +44,11 @@ namespace QLHS
             string maDiem = txt_ma.Text;
             string query = "DELETE From PhanHoi Where MaPhanHoi = '" + maDiem + "'";
             ham.capnhat(query, conn);
-            ham.HienThiDLDG(dataGridView1, " select ph.MaPhanHoi,  hs.HoTen,l.tenlop, ph.PhanHoi from Lop l, PhanHoi ph, HocSinh hs where hs.MaHocSinh = ph.MaHocSinh And hs.MaLop = l.MaLop", conn);
+            ham.HienThiDLDG(dataGridView1, " select ph.MaPhanHoi,  hs.HoTen,l.tenlop, ph.PhanHoi " +
+                "from Lop l, PhanHoi ph, HocSinh hs " +
+                "where hs.MaHocSinh = ph.MaHocSinh " +
+                "And hs.MaLop = l.MaLop", conn);
+            txt_ma.Text = "";
             
         }
     }

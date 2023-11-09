@@ -16,7 +16,9 @@ namespace QLHS
             ham.connect(conn);
         }
         private void Form_Login_Load(object sender, EventArgs e)
+
         {
+            txt_password.UseSystemPasswordChar = true;
             ham.connect(conn);
         }
 

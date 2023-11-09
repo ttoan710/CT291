@@ -55,7 +55,13 @@ namespace QLHS
             this.Hide();
             form_Print.ShowDialog();
         }
-
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form_Lich_Giang_Day fm = new Form_Lich_Giang_Day();
+            Form_Home1.IsFormOpenedFromHome1 = true;
+            this.Hide();
+            fm.ShowDialog();
+        }
         private void update_Click(object sender, EventArgs e)
         {
 
@@ -145,5 +151,7 @@ namespace QLHS
         {
 
         }
+
+       
     }
 }

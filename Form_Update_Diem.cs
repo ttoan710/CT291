@@ -308,39 +308,16 @@ namespace QLHS
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count - 1) // Kiểm tra chỉ xử lý khi click vào dòng có dữ liệu
-            {
+        {         
                 txt_ma_diem.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                // cb_mahs.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                // cb_mon.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(); ;
-                // cb_hoc_ky.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                // txt_mieng.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                // txt_15p.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                //txt_1t.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                // txt_thi.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-            }
-            else // Xử lý khi click vào ô trống
-            {
-                string ma_lon_nhat = "SELECT MAX(SUBSTRING(MaDiem, 3, 3)) FROM DIEM";
-                SqlCommand comd = new SqlCommand(ma_lon_nhat, conn);
-                SqlDataReader reader = comd.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    int max = Convert.ToInt16(reader.GetValue(0).ToString()) + 1;
-                    if (max < 10)
-                    {
-                        txt_ma_diem.Text = "MD00" + max;
-                    }
-                    else
-                    {
-                        txt_ma_diem.Text = "MD0" + max;
-                    }
-                    txt_ma_diem.Enabled = false;
-                }
-                reader.Close();
-            }
+                cb_mahs.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                cb_mon.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(); ;
+                cb_hoc_ky.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txt_mieng.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txt_15p.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txt_1t.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                txt_thi.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+  
         }
 
 

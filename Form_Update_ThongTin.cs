@@ -23,17 +23,16 @@ namespace QLHS
             InitializeComponent();
         }
 
-       
+
         private void Form_Update_ThongTin_Load(object sender, EventArgs e)
         {
             ham.connect(conn);
             ham.HienThiDLDG(dataGridView1, "SELECT distinct hs.MaHocSinh,hs.HoTen, hs.NgaySinh, hs.GioiTinh, l.TenLop, hs.MatKhau FROM HocSinh hs, Lop l Where hs.MaLop = l.MaLop", conn);
             ham.HienThiDLComb(cb_ma_lop, "SELECT TenLop, MALOP FROM Lop", conn, "TenLop", "MALOP");
             LoadGioiTinhToComboBox();
-
+            txt_ma_hs.Enabled = false;
         }
       
-
         private void LoadGioiTinhToComboBox()
         {
             cb_sex.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -99,6 +98,7 @@ namespace QLHS
             ham.HienThiDLDG(dataGridView1, "SELECT * FROM HocSinh", conn);
             btn_them.Enabled = true;
         }
+
         private void btn_dat_Click(object sender, EventArgs e)
         {
             clearALL();
@@ -107,7 +107,6 @@ namespace QLHS
         private void btn_xoa_Click(object sender, EventArgs e)
         {
             string ma = txt_ma_hs.Text;
-
             string sql_xoa = "DELETE FROM HocSinh WHERE MaHocSinh ='" + ma + "'";
             ham.capnhat(sql_xoa, conn);
             ham.HienThiDLDG(dataGridView1, "SELECT * FROM HocSinh", conn);
@@ -130,10 +129,6 @@ namespace QLHS
 
         }
 
-        private void cb_sex_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void clearALL()
         {
             cb_ma_lop.Text = "";
@@ -154,14 +149,11 @@ namespace QLHS
             }
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
+        private void button1_Click(object sender, EventArgs e)
+        {        
+                Form_Home fh = new Form_Home();
+                this.Hide();
+                fh.ShowDialog();           
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
