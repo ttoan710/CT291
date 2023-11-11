@@ -84,6 +84,26 @@ namespace QLHS
                 ham.HienThiDLComb(cb_mon, "SELECT MaMonHoc, TenMonHoc FROM MonHoc", conn, "TenMonHoc", "MaMonHoc");
             }
 
+            int mau = function.mau;
+            if (mau == 1)
+            {
+                this.groupBox2.BackColor = System.Drawing.Color.FromName(function._backcolor_day);
+                this.groupBox3.BackColor = System.Drawing.Color.FromName(function._backcolor_day);
+                this.groupBox4.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_day);
+                this.dataGridView1.BackgroundColor = System.Drawing.Color.FromName(function._dataGridViewcolor_day);
+                this.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_day);
+
+            }
+            else
+            {
+                this.groupBox2.BackColor = System.Drawing.Color.FromName(function._backcolor_night);
+                this.groupBox3.BackColor = System.Drawing.Color.FromName(function._backcolor_night);
+                this.groupBox4.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_night);
+                this.dataGridView1.BackgroundColor = System.Drawing.Color.FromName(function._dataGridViewcolor_night);
+                this.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_night);
+
+            }
+
         }
 
         private void btn_them_Click(object sender, EventArgs e)
@@ -340,6 +360,7 @@ namespace QLHS
         {
 
         }
+        
     }
 }
 

@@ -15,13 +15,15 @@ namespace QLHS
     {
         public SqlConnection conn = new SqlConnection();
         function ham = new function();
-        public Form_Lich_Giang_Day()
+        string teachername;
+        public Form_Lich_Giang_Day(string teachernamne)
         {
             InitializeComponent();
+            this.teachername = teachernamne;
         }
+       
 
-       
-       
+
 
         private void Form_Lich_Giang_Day_Load(object sender, EventArgs e)
         {
@@ -31,11 +33,38 @@ namespace QLHS
                 "where pc.MaGiaoVien = gv.MaGiaoVien " +
                 "AND gv.MaMon = mh.MaMonHoc " +
                 "AND pc.MaLop = l.MaLop", conn);
+
+            int mau = function.mau;
+            if (mau == 1)
+            {
+                this.groupBox1.BackColor = System.Drawing.Color.FromName(function._backcolor_day);
+                this.dataGridView1.BackgroundColor = System.Drawing.Color.FromName(function._dataGridViewcolor_day);
+                this.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_day);
+
+            }
+            else
+            {
+                this.groupBox1.BackColor = System.Drawing.Color.FromName(function._backcolor_night);
+                this.dataGridView1.BackgroundColor = System.Drawing.Color.FromName(function._dataGridViewcolor_night);
+                this.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_night);
+
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void logout_Click(object sender, EventArgs e)
         {
-
+            if (Form_Home1.IsFormOpenedFromHome1)
+            {
+                Form_Home1 fh = new Form_Home1(this.teachername);
+                this.Hide();
+                fh.ShowDialog();
+            }
+            else
+            {
+                Form_Home fh = new Form_Home();
+                this.Hide();
+                fh.ShowDialog();
+            }
         }
     }
 }

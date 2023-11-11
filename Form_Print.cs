@@ -28,14 +28,15 @@ namespace QLHS
             if (Form_Home1.IsFormOpenedFromHome1)
             {
                 Form_Home1 h = new Form_Home1(teachername);
-
+                this.Hide();
                 h.ShowDialog();
             }
             else {
                 Form_Home h = new Form_Home();
-
+                this.Hide();
                 h.ShowDialog();
             }
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -61,6 +62,28 @@ namespace QLHS
             else
             {
                 ham.HienThiDLDG(dataGridView1, "SELECT HocSinh.HoTen, MonHoc.TenMonHoc, HocKy.TenHocKy, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi, ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh FROM Diem INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc INNER JOIN HocKy ON Diem.MaHocKy = HocKy.MaHocKy INNER JOIN HocSinh ON HocSinh.MaHocSinh = Diem.MaHocSinh WHERE Diem.MaHocKy = 'HK001' GROUP BY HocSinh.HoTen, MonHoc.TenMonHoc, HocKy.TenHocKy, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi ORDER BY HocKy.TenHocKy", conn);
+            }
+
+            int mau = function.mau;
+            if (mau == 1)
+            {
+                this.groupBox4.ForeColor = System.Drawing.Color.FromName(function._backgroundcolor_day);
+                this.groupBox2.BackColor = System.Drawing.Color.FromName(function._backcolor_day);
+                this.groupBox3.BackColor = System.Drawing.Color.FromName(function._backcolor_day);
+                this.groupBox4.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_day);
+                this.dataGridView1.BackgroundColor = System.Drawing.Color.FromName(function._dataGridViewcolor_day);
+                this.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_day);
+
+            }
+            else
+            {
+                this.groupBox4.ForeColor = System.Drawing.Color.FromName(function._backgroundcolor_day);
+                this.groupBox2.BackColor = System.Drawing.Color.FromName(function._backcolor_night);
+                this.groupBox3.BackColor = System.Drawing.Color.FromName(function._backcolor_night);
+                this.groupBox4.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_night);
+                this.dataGridView1.BackgroundColor = System.Drawing.Color.FromName(function._dataGridViewcolor_night);
+                this.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_night);
+
             }
         }
         private void btn_hk_Click(object sender, EventArgs e)
@@ -98,7 +121,12 @@ namespace QLHS
                 }
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
+    }
 
     }
 

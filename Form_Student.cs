@@ -120,6 +120,23 @@ namespace QLHS
             MessageBox.Show("Đã gửi thành công");
             tb_gui.Text = "";
         }
+
+        private void dataGridView_xl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form_Login l = new Form_Login();
+            this.Hide();
+            l.ShowDialog();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -10,11 +10,21 @@ namespace QLHS
 {
     class function
     {
+        public static int mau = 1;
+        //public static string _backcolor_day = "DarkTurquoise";
+        //public static string _backgroundcolor_day = "Gainsboro";
+        public static string _backcolor_day = "DodgerBlue";
+        public static string _backgroundcolor_day = "AliceBlue";
+        public static string _dataGridViewcolor_day = "Info";
+        public static string _backcolor_night = "LightSlateGray";
+        public static string _backgroundcolor_night = "MenuText";
+        public static string _dataGridViewcolor_night = "DarkGray";
+        
         public void connect(SqlConnection conn)
         {
             if (conn.State != ConnectionState.Open)
             {
-                string chuoiketnoi = "SERVER=OLONG-TEA-PLUS; database=QuanLiDiem; Integrated Security=true";
+                string chuoiketnoi = "SERVER=asus; database=QuanLiDiem; Integrated Security=true";
                 conn.ConnectionString = chuoiketnoi;
                 conn.Open();
             }

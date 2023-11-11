@@ -6,10 +6,11 @@ using System.Windows.Forms;
 namespace QLHS
 {
     public partial class Form_Login : Form
-    {
+    {   
         public SqlConnection conn = new SqlConnection();
         function ham = new function();
-
+       
+        
         public Form_Login()
         {
             InitializeComponent();
@@ -20,6 +21,8 @@ namespace QLHS
         {
             txt_password.UseSystemPasswordChar = true;
             ham.connect(conn);
+
+           
         }
 
 

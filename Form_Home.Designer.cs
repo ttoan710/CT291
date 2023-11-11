@@ -65,7 +65,7 @@ namespace QLHS
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBox1.BackColor = System.Drawing.Color.DarkTurquoise;
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.button4);
@@ -220,7 +220,7 @@ namespace QLHS
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBox2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.listBox2);
             this.groupBox2.Controls.Add(this.listBox1);
@@ -268,7 +268,7 @@ namespace QLHS
             this.listBox2.FormatString = "D";
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 27;
-            this.listBox2.Location = new System.Drawing.Point(15, 87);
+            this.listBox2.Location = new System.Drawing.Point(16, 99);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(265, 31);
             this.listBox2.TabIndex = 10;
@@ -287,7 +287,7 @@ namespace QLHS
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBox3.BackColor = System.Drawing.Color.DarkTurquoise;
             this.groupBox3.Controls.Add(this.btn_color);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(27, 12);
@@ -299,18 +299,19 @@ namespace QLHS
             // 
             // btn_color
             // 
-            this.btn_color.Location = new System.Drawing.Point(976, 62);
+            this.btn_color.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_color.BackgroundImage")));
+            this.btn_color.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_color.Location = new System.Drawing.Point(1032, 73);
             this.btn_color.Name = "btn_color";
-            this.btn_color.Size = new System.Drawing.Size(120, 51);
+            this.btn_color.Size = new System.Drawing.Size(102, 48);
             this.btn_color.TabIndex = 10;
-            this.btn_color.Text = "Giao Diện Sáng";
             this.btn_color.UseVisualStyleBackColor = true;
             this.btn_color.Click += new System.EventHandler(this.btn_color_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.Info;
             this.label7.Location = new System.Drawing.Point(375, 42);
@@ -324,7 +325,7 @@ namespace QLHS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1190, 688);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);

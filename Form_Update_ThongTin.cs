@@ -31,6 +31,26 @@ namespace QLHS
             ham.HienThiDLComb(cb_ma_lop, "SELECT TenLop, MALOP FROM Lop", conn, "TenLop", "MALOP");
             LoadGioiTinhToComboBox();
             txt_ma_hs.Enabled = false;
+
+            int mau = function.mau;
+            if (mau == 1)
+            {
+                this.groupBox2.BackColor = System.Drawing.Color.FromName(function._backcolor_day);
+                this.groupBox3.BackColor = System.Drawing.Color.FromName(function._backcolor_day);
+                this.groupBox4.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_day);
+                this.dataGridView1.BackgroundColor = System.Drawing.Color.FromName(function._dataGridViewcolor_day);
+                this.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_day);
+                
+            }
+            else
+            {
+                this.groupBox2.BackColor = System.Drawing.Color.FromName(function._backcolor_night);
+                this.groupBox3.BackColor = System.Drawing.Color.FromName(function._backcolor_night);
+                this.groupBox4.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_night);
+                this.dataGridView1.BackgroundColor = System.Drawing.Color.FromName(function._dataGridViewcolor_night);
+                this.BackColor = System.Drawing.Color.FromName(function._backgroundcolor_night);
+
+            }
         }
       
         private void LoadGioiTinhToComboBox()
@@ -157,6 +177,11 @@ namespace QLHS
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_tim_TextChanged(object sender, EventArgs e)
         {
 
         }
