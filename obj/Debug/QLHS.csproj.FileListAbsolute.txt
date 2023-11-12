@@ -160,3 +160,20 @@ D:\Code\CT291\CT291\obj\Debug\QLHS.csproj.GenerateResource.cache
 D:\Code\CT291\CT291\obj\Debug\QLHS.csproj.CoreCompileInputs.cache
 D:\Code\CT291\CT291\obj\Debug\QLHS.exe
 D:\Code\CT291\CT291\obj\Debug\QLHS.pdb
+C:\Users\DELL\Desktop\New folder\CT291\bin\Debug\QLHS.exe.config
+C:\Users\DELL\Desktop\New folder\CT291\bin\Debug\QLHS.exe
+C:\Users\DELL\Desktop\New folder\CT291\bin\Debug\QLHS.pdb
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.Form_Home1.resources
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.Form_Lich_Giang_Day.resources
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.Form_Login.resources
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.Form_Phan_Hoi.resources
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.Form_Print.resources
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.Form_Student.resources
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.Form_Update_Diem.resources
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.Form_Update_ThongTin.resources
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.Properties.Resources.resources
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.csproj.GenerateResource.cache
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.exe
+C:\Users\DELL\Desktop\New folder\CT291\obj\Debug\QLHS.pdb

@@ -53,18 +53,16 @@ namespace QLHS
 
         private void logout_Click(object sender, EventArgs e)
         {
-            if (Form_Home1.IsFormOpenedFromHome1)
-            {
+           
                 Form_Home1 fh = new Form_Home1(this.teachername);
                 this.Hide();
                 fh.ShowDialog();
-            }
-            else
-            {
-                Form_Home fh = new Form_Home();
-                this.Hide();
-                fh.ShowDialog();
-            }
+           
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+            
         }
     }
 }

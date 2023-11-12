@@ -53,7 +53,7 @@ namespace QLHS
                 //MessageBox.Show(image1Path);
             }
         }
-        public static bool IsFormOpenedFromHome1 = false;
+       
         private void logout_Click_1(object sender, EventArgs e)
         {
             function.mau = 1;
@@ -64,50 +64,58 @@ namespace QLHS
 
         private void update_thongtin_Click(object sender, EventArgs e)
         {
-            //Form_Update_ThongTin form_Update = new Form_Update_ThongTin();
-            //Form_Home1.IsFormOpenedFromHome1 = true;
-            //this.Hide();
-            //form_Update.ShowDialog();
+            Form_Update_ThongTin form_Update = new Form_Update_ThongTin(teacherName);
+            this.Hide();
+            form_Update.ShowDialog();
         }
 
         private void update_diem_Click(object sender, EventArgs e)
         {
-            Form_Update_Diem form_Update_Diem = new Form_Update_Diem(teacherName);
-            Form_Home1.IsFormOpenedFromHome1 = true;
+            Form_Update_Diem form_Update_Diem = new Form_Update_Diem(teacherName);            
             this.Hide();
             form_Update_Diem.ShowDialog();
         }
 
         private void print_Click(object sender, EventArgs e)
         {
-            Form_Print form_Print = new Form_Print(teacherName);
-            Form_Home1.IsFormOpenedFromHome1 = true;
+            Form_Print form_Print = new Form_Print(teacherName);           
             this.Hide();
             form_Print.ShowDialog();
         }
-        private void button4_Click(object sender, EventArgs e)
+        private void Lich_Click(object sender, EventArgs e)
         {
-            Form_Lich_Giang_Day fm = new Form_Lich_Giang_Day("");
-            Form_Home1.IsFormOpenedFromHome1 = true;
+            Form_Lich_Giang_Day d = new Form_Lich_Giang_Day(teacherName);
             this.Hide();
-            fm.ShowDialog();
+            d.ShowDialog();
         }
-        private void update_Click(object sender, EventArgs e)
+
+        private void PhanHoi_Click(object sender, EventArgs e)
+        {
+            Form_Phan_Hoi ph = new Form_Phan_Hoi(teacherName);
+            this.Hide();
+            ph.Show();
+        }
+
+
+        public void btn_color_Click(object sender, EventArgs e)
         {
 
+            if (mau == 1)
+            {
+                function.mau = 0;
+                mau = 0;
+                ChinhMauGiaoDien(mau);
+                btn_color.BackgroundImage = image2;
+            }
+            else if (mau == 0)
+            {
+                function.mau = 1;
+                mau = 1;
+                ChinhMauGiaoDien(mau);
+                btn_color.BackgroundImage = image1;
+
+            }
         }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-      
-
         private void Form_Home_Load(object sender, EventArgs e)
         {
             ham.connect(conn);
@@ -135,35 +143,7 @@ namespace QLHS
             ChinhMauGiaoDien(mau);
         }
 
-
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Form_Phan_Hoi ph = new Form_Phan_Hoi("");
-            this.Hide();
-            ph.Show();
-        }
-
-        
-        public void btn_color_Click(object sender, EventArgs e)
-        {
-
-            if (mau == 1)
-            {
-                function.mau = 0;
-                mau = 0;
-                ChinhMauGiaoDien(mau);
-                btn_color.BackgroundImage = image2;
-            }
-            else if (mau == 0)
-            {
-                function.mau = 1;
-                mau = 1;
-                ChinhMauGiaoDien(mau);
-                btn_color.BackgroundImage = image1;
-
-            }
-        }
+      
         private void ChinhMauGiaoDien(int mauHienTai)
         {
             if (mauHienTai == 1)
@@ -188,14 +168,6 @@ namespace QLHS
             }
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

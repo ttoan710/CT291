@@ -26,10 +26,7 @@ namespace QLHS
         private void Form_Phan_Hoi_Load(object sender, EventArgs e)
         {
             ham.connect(conn);
-            ham.HienThiDLDG(dataGridView1, " select ph.MaPhanHoi,  hs.HoTen, l.tenlop, ph.PhanHoi " +
-                "from Lop l, PhanHoi ph, HocSinh hs " +
-                "where hs.MaHocSinh = ph.MaHocSinh " +
-                "And hs.MaLop = l.MaLop", conn);
+            ham.HienThiDLDG(dataGridView1, "  select ph.MaPhanHoi,  hs.HoTen, l.tenlop, ph.PhanHoi from Lop l, PhanHoi ph, HocSinh hs where hs.MaHocSinh = ph.MaHocSinh  And hs.MaLop = l.MaLop", conn);
 
 
             int mau = function.mau;
@@ -74,18 +71,10 @@ namespace QLHS
 
         private void logout_Click(object sender, EventArgs e)
         {
-            if (Form_Home1.IsFormOpenedFromHome1)
-            {
-                Form_Home1 fh = new Form_Home1(this.teachername);
-                this.Hide();
-                fh.ShowDialog();
-            }
-            else
-            {
-                Form_Home fh = new Form_Home();
-                this.Hide();
-                fh.ShowDialog();
-            }
+            Form_Home1 h = new Form_Home1(teachername);
+            this.Hide();
+            h.ShowDialog();
+
+        }
         }
     }
-}

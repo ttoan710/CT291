@@ -16,14 +16,7 @@ namespace QLHS
             InitializeComponent();
             ham.connect(conn);
         }
-        private void Form_Login_Load(object sender, EventArgs e)
 
-        {
-            txt_password.UseSystemPasswordChar = true;
-            ham.connect(conn);
-
-           
-        }
 
 
         private void btn_login_Click_1(object sender, EventArgs e)
@@ -49,21 +42,7 @@ namespace QLHS
 
 
             // Kiểm tra thông tin người dùng với bảng GiaoVien          
-            if (txt_username.Text.ToUpper() == "GVCN")
-            {
-                string teacherCNQuery = $"SELECT MaGiaoVien FROM GiaoVien WHERE MaGiaoVien = 'GVCN' AND MatKhau = '{password}'";
-                SqlCommand teacherCNCmd = new SqlCommand(teacherCNQuery, conn);
-                SqlDataReader teacherCNReader = teacherCNCmd.ExecuteReader();
-
-                if (teacherCNReader.Read())
-                {
-                    role = "GVCN";
-                }
-
-                teacherCNReader.Close();
-            }
-            else
-            {
+            
                 string teacherQuery = $"SELECT MaGiaoVien FROM GiaoVien WHERE MaGiaoVien = '{username}' AND MatKhau = '{password}'";
                 SqlCommand teacherCmd = new SqlCommand(teacherQuery, conn);
                 SqlDataReader teacherReader = teacherCmd.ExecuteReader();
@@ -74,7 +53,9 @@ namespace QLHS
                 }
 
                 teacherReader.Close();
-            }
+            
+
+
             // Xử lý logic dựa trên vai trò (role) của người dùng
             if (role == "student")
             {
@@ -91,15 +72,7 @@ namespace QLHS
                 this.Hide();
                 form_Home1.ShowDialog();
 
-            }
-            else if (role == "GVCN")
-            {
-                // Mở form giáo viên chủ nhiệm
-                Form_Home form_Home = new Form_Home();
-                this.Hide();
-                form_Home.ShowDialog();
-
-            }
+            }            
             else
             {
                 // Thông báo thông tin đăng nhập không hợp lệ
@@ -130,6 +103,11 @@ namespace QLHS
                 // Ẩn mật khẩu
                 txt_password.UseSystemPasswordChar = true;
             }
+        }
+
+        private void Form_Login_Load(object sender, EventArgs e)
+        {
+            txt_password.UseSystemPasswordChar = true;
         }
     }
 }

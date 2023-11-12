@@ -26,17 +26,10 @@ namespace QLHS
 
         private void logout_Click(object sender, EventArgs e)
         {
-            if (Form_Home1.IsFormOpenedFromHome1)
-            {
+           
                 Form_Home1 fh = new Form_Home1(this.teachername);
                 this.Hide();
-                fh.ShowDialog();
-            }else
-            {
-                Form_Home fh = new Form_Home();
-                this.Hide();
-                fh.ShowDialog();
-            }
+                fh.ShowDialog();   
         }
 
         private void print_Click(object sender, EventArgs e)
@@ -48,42 +41,50 @@ namespace QLHS
 
         private void update_thongtin_Click(object sender, EventArgs e)
         {
-            Form_Update_ThongTin tt = new Form_Update_ThongTin();
+            Form_Update_ThongTin tt = new Form_Update_ThongTin(teachername);
             this.Hide();
             tt.ShowDialog();
         }
-
-
-
-
-
 
         private void Form_Update_Diem_Load(object sender, EventArgs e)
         {
 
             ham.connect(conn);
             txt_ma_diem.Enabled = false;
-            if (Form_Home1.IsFormOpenedFromHome1)
-            {
-                ham.HienThiDLDG(dataGridView1, "SELECT       d.MaDiem AS Mã,      MIN(hs.HoTen) AS HoTen,      MIN(mh.TenMonHoc) AS TenMonHoc,      MIN(hk.TenHocKy) AS TenHocKy,      MIN(d.DiemMieng) AS DiemMieng,      MIN(d.Diem15Phut) AS Diem15Phut,      MIN(d.Diem1Tiet) AS Diem1Tiet,      MIN(d.DiemThi) AS DiemThi  FROM       Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv  WHERE       d.MaHocSinh = hs.MaHocSinh       AND d.MaHocKy = hk.MaHocKy       AND mh.MaMonHoc = d.MaMon  \tAND mh.MaMonHoc = gv.MaMon  \tAND gv.MaGiaoVien = '" + teachername + "' GROUP BY       d.MaDiem", conn);
 
-            }
-            else
-            {
-                ham.HienThiDLDG(dataGridView1, "Select d.MaDiem as Mã,hs.HoTen, mh.TenMonHoc, hk.TenHocKy,d.DiemMieng ,d.Diem15Phut,d.Diem1Tiet,d.DiemThi from Diem d,HocSinh hs,HocKy hk,MonHoc mh where d.MaHocSinh = hs.MaHocSinh and d.MaHocKy = hk.MaHocKy and mh.MaMonHoc = d.MaMon;  ", conn);
-            }
-            if (Form_Home1.IsFormOpenedFromHome1)
-            {
-                ham.HienThiDLComb(cb_hoc_ky, "SELECT MAHOCKY, TENHOCKY FROM HOCKY", conn, "TENHOCKY", "MAHOCKY");
-                ham.HienThiDLComb(cb_mahs, "SELECT MaHocSinh, HoTen FROM HocSinh", conn, "HoTen", "MaHocSinh");
-                ham.HienThiDLComb(cb_mon, "SELECT mh.MaMonHoc, mh.TenMonHoc FROM MonHoc mh,GiaoVien gv where gv.MaMon = mh.MaMonHoc and gv.MaGiaoVien = '"+teachername+"'", conn, "TenMonHoc", "MaMonHoc");
-            } else
-            {
-                ham.HienThiDLComb(cb_hoc_ky, "SELECT MAHOCKY, TENHOCKY FROM HOCKY", conn, "TENHOCKY", "MAHOCKY");
-                ham.HienThiDLComb(cb_mahs, "SELECT MaHocSinh, HoTen FROM HocSinh", conn, "HoTen", "MaHocSinh");
-                ham.HienThiDLComb(cb_mon, "SELECT MaMonHoc, TenMonHoc FROM MonHoc", conn, "TenMonHoc", "MaMonHoc");
-            }
+            ham.HienThiDLDG(dataGridView1, "SELECT d.MaDiem AS Mã, MIN(hs.HoTen) AS HoTen, MIN(l.TenLop) AS Lop, MIN(hk.TenHocKy) AS TenHocKy, MIN(d.DiemMieng) AS DiemMieng, MIN(d.Diem15Phut) AS Diem15Phut, MIN(d.Diem1Tiet) AS Diem1Tiet, MIN(d.DiemThi) AS DiemThi  " +
+                               "FROM  Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv,Lop l  " +
+                               "WHERE l.MaLop = hs.MaLop " +
+                               "AND  d.MaHocSinh = hs.MaHocSinh " +
+                               "AND d.MaHocKy = hk.MaHocKy " +
+                               "AND mh.MaMonHoc = d.MaMon " +
+                               "AND  mh.MaMonHoc = gv.MaMon " +
+                               "AND gv.MaGiaoVien = '" + teachername + "' " +
+                               "GROUP BY  d.MaDiem", conn); 
 
+            ham.HienThiDLComb(cb_hoc_ky, "SELECT MAHOCKY, TENHOCKY FROM HOCKY", conn, "TENHOCKY", "MAHOCKY");
+               
+            ham.HienThiDLComb(cb_mahs, "SELECT MaHocSinh, HoTen FROM HocSinh", conn, "HoTen", "MaHocSinh");
+
+            ham.HienThiDLComb(cb_lop, "SELECT l.TenLop, l.MaLop FROM Lop l" , conn, "TenLop", "MaLop");
+
+            ham.HienThiDLComb(cb_mon, "SELECT mh.MaMonHoc, mh.TenMonHoc " +
+                "FROM MonHoc mh,GiaoVien gv " +
+                "where gv.MaMon = mh.MaMonHoc " +
+                "and gv.MaGiaoVien = '"+teachername+"'", conn, "TenMonHoc", "MaMonHoc");
+            
+            // Gán tên môn học vào label
+            string temon = "SELECT mh.TenMonHoc FROM GiaoVien gv, MonHoc mh Where gv.MaMon = mh.MaMonHoc And gv.MaGiaoVien ='" + teachername + "'";
+            SqlCommand comd = new SqlCommand(temon, conn);
+            SqlDataReader reader = comd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                string tenMonHoc = reader["TenMonHoc"].ToString();
+                label1.Text += tenMonHoc;
+            }
+            reader.Close();
+        
             int mau = function.mau;
             if (mau == 1)
             {
@@ -108,11 +109,10 @@ namespace QLHS
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-           
+           // Tăng mã điểm
             string ma_lon_nhat = "select Max (SUBSTRING(MaDiem,3,3)) from DIEM";
             SqlCommand comd = new SqlCommand(ma_lon_nhat, conn);
             SqlDataReader reader = comd.ExecuteReader();
-
             if (reader.Read())
             {
                 int max = Convert.ToInt16(reader.GetValue(0).ToString()) + 1;
@@ -142,6 +142,7 @@ namespace QLHS
 
             float diemMiengValue, diem15Value, diem1tValue, diemThiValue;
 
+            // kiểm tra nhập vào
             try
             {
                 if (!float.TryParse(diemmieng, out diemMiengValue))
@@ -171,8 +172,7 @@ namespace QLHS
                 {
                     throw new Exception("Giá trị điểm nằm ngoài khoảng từ 0 đến 10.");
                 }
-
-                // Tiếp tục xử lý khi giá trị điểm hợp lệ nếu được mở từ Form_Home1
+               // Kết thúc kiểm tra
                
                 
                 string diemQuery = $"SELECT MaHocSinh FROM Diem WHERE MaHocSinh = '{maHocSinh}' AND MaMon = '{maMon}' AND MaHocKy = '{maHocKy}'";
@@ -185,33 +185,34 @@ namespace QLHS
 
                     string updateQuery = $"UPDATE Diem SET DiemMieng = (CASE WHEN DiemMieng = 0 THEN {diemMiengValue} WHEN DiemMieng <> 0 AND {diemMiengValue} = 0 THEN DiemMieng ELSE (DiemMieng + {diemMiengValue}) / 2 END), Diem15Phut = (CASE WHEN Diem15Phut = 0 THEN {diem15Value} WHEN Diem15Phut <> 0 AND {diem15Value} = 0 THEN Diem15Phut ELSE (Diem15Phut + {diem15Value}) / 2 END), Diem1Tiet = (CASE WHEN Diem1Tiet = 0 THEN {diem1tValue} WHEN Diem1Tiet <> 0 AND {diem1tValue} = 0 THEN Diem1Tiet ELSE (Diem1Tiet + {diem1tValue}) / 2 END), DiemThi = (CASE WHEN DiemThi = 0 THEN {diemThiValue} WHEN DiemThi <> 0 AND {diemThiValue} = 0 THEN DiemThi ELSE (DiemThi + {diemThiValue}) / 2 END) WHERE MaHocSinh = '{maHocSinh}' AND MaMon = '{maMon}' AND MaHocKy = '{maHocKy}'";
                     ham.capnhat(updateQuery, conn);
-                    if (Form_Home1.IsFormOpenedFromHome1)
-                    {
-                        ham.HienThiDLDG(dataGridView1, "SELECT       d.MaDiem AS Mã,      MIN(hs.HoTen) AS HoTen,      MIN(mh.TenMonHoc) AS TenMonHoc,      MIN(hk.TenHocKy) AS TenHocKy,      MIN(d.DiemMieng) AS DiemMieng,      MIN(d.Diem15Phut) AS Diem15Phut,      MIN(d.Diem1Tiet) AS Diem1Tiet,      MIN(d.DiemThi) AS DiemThi  FROM       Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv  WHERE       d.MaHocSinh = hs.MaHocSinh       AND d.MaHocKy = hk.MaHocKy       AND mh.MaMonHoc = d.MaMon  \tAND mh.MaMonHoc = gv.MaMon  \tAND gv.MaGiaoVien = '" + teachername + "' GROUP BY       d.MaDiem", conn);
 
-                    }
-                    else
-                    {
-                        ham.HienThiDLDG(dataGridView1, "Select d.MaDiem as Mã,hs.HoTen, mh.TenMonHoc, hk.TenHocKy,d.DiemMieng ,d.Diem15Phut,d.Diem1Tiet,d.DiemThi from Diem d,HocSinh hs,HocKy hk,MonHoc mh where d.MaHocSinh = hs.MaHocSinh and d.MaHocKy = hk.MaHocKy and mh.MaMonHoc = d.MaMon;  ", conn);
-                    }
-                    clearALL();
-                
-            }
+                    ham.HienThiDLDG(dataGridView1, "SELECT d.MaDiem AS Mã, MIN(hs.HoTen) AS HoTen, MIN(l.TenLop) AS Lop, MIN(hk.TenHocKy) AS TenHocKy, MIN(d.DiemMieng) AS DiemMieng, MIN(d.Diem15Phut) AS Diem15Phut, MIN(d.Diem1Tiet) AS Diem1Tiet, MIN(d.DiemThi) AS DiemThi  " +
+                                "FROM  Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv,Lop l  " +
+                                "WHERE l.MaLop = hs.MaLop " +
+                                "AND  d.MaHocSinh = hs.MaHocSinh " +
+                                "AND d.MaHocKy = hk.MaHocKy " +
+                                "AND mh.MaMonHoc = d.MaMon " +
+                                "AND  mh.MaMonHoc = gv.MaMon " +
+                                "AND gv.MaGiaoVien = '" + teachername + "' " +
+                                "GROUP BY  d.MaDiem", conn);
+
+                }
                 else
                 {
                     diemReader.Close(); // Đóng DataReader trước khi thực hiện truy vấn INSERT
 
                     string insertQuery = $"INSERT INTO Diem (MaDiem, MaHocSinh, MaMon, MaHocKy, DiemMieng, Diem15Phut, Diem1Tiet, DiemThi) VALUES ('{maDiem}', '{maHocSinh}', '{maMon}', '{maHocKy}', '{diemmieng}', '{diem15}', '{diem1t}', '{diemthi}')";
                     ham.capnhat(insertQuery, conn);
-                    if (Form_Home1.IsFormOpenedFromHome1)
-                    {
-                        ham.HienThiDLDG(dataGridView1, "SELECT       d.MaDiem AS Mã,      MIN(hs.HoTen) AS HoTen,      MIN(mh.TenMonHoc) AS TenMonHoc,      MIN(hk.TenHocKy) AS TenHocKy,      MIN(d.DiemMieng) AS DiemMieng,      MIN(d.Diem15Phut) AS Diem15Phut,      MIN(d.Diem1Tiet) AS Diem1Tiet,      MIN(d.DiemThi) AS DiemThi  FROM       Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv  WHERE       d.MaHocSinh = hs.MaHocSinh       AND d.MaHocKy = hk.MaHocKy       AND mh.MaMonHoc = d.MaMon  \tAND mh.MaMonHoc = gv.MaMon  \tAND gv.MaGiaoVien = '" + teachername + "' GROUP BY       d.MaDiem", conn);
 
-                    }
-                    else
-                    {
-                        ham.HienThiDLDG(dataGridView1, "Select d.MaDiem as Mã,hs.HoTen, mh.TenMonHoc, hk.TenHocKy,d.DiemMieng ,d.Diem15Phut,d.Diem1Tiet,d.DiemThi from Diem d,HocSinh hs,HocKy hk,MonHoc mh where d.MaHocSinh = hs.MaHocSinh and d.MaHocKy = hk.MaHocKy and mh.MaMonHoc = d.MaMon;  ", conn);
-                    }
+                    ham.HienThiDLDG(dataGridView1, "SELECT d.MaDiem AS Mã, MIN(hs.HoTen) AS HoTen, MIN(l.TenLop) AS Lop, MIN(hk.TenHocKy) AS TenHocKy, MIN(d.DiemMieng) AS DiemMieng, MIN(d.Diem15Phut) AS Diem15Phut, MIN(d.Diem1Tiet) AS Diem1Tiet, MIN(d.DiemThi) AS DiemThi  " +
+                                "FROM  Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv,Lop l  " +
+                                "WHERE l.MaLop = hs.MaLop " +
+                                "AND  d.MaHocSinh = hs.MaHocSinh " +
+                                "AND d.MaHocKy = hk.MaHocKy " +
+                                "AND mh.MaMonHoc = d.MaMon " +
+                                "AND  mh.MaMonHoc = gv.MaMon " +
+                                "AND gv.MaGiaoVien = '" + teachername + "' " +
+                                "GROUP BY  d.MaDiem", conn); 
                     clearALL();
                 }
             }
@@ -230,17 +231,17 @@ namespace QLHS
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string tuKhoa = txt_tim.Text;
-                string sql_tim = "SELECT d.MaDiem AS Mã, d.MaHocSinh, hs.HoTen, mh.TenMonHoc, hk.TenHocKy, d.DiemMieng, d.Diem15Phut, d.Diem1Tiet, d.DiemThi FROM Diem d, HocSinh hs, HocKy hk, GiaoVien gv, MonHoc mh WHERE d.MaHocSinh = hs.MaHocSinh AND d.MaHocKy = hk.MaHocKy AND mh.MaMonHoc = d.MaMon AND gv.MaMon = d.MaMon AND d.MaMon = gv.MaMon AND gv.MaGiaoVien = '" + teachername + "' AND (hs.MaHocSinh LIKE '%" + tuKhoa + "%' OR hs.HoTen LIKE '%" + tuKhoa + "%')";
-                if (Form_Home1.IsFormOpenedFromHome1)
-                {
-                    ham.HienThiDLDG(dataGridView1, "SELECT       d.MaDiem AS Mã,      MIN(hs.HoTen) AS HoTen,      MIN(mh.TenMonHoc) AS TenMonHoc,      MIN(hk.TenHocKy) AS TenHocKy,      MIN(d.DiemMieng) AS DiemMieng,      MIN(d.Diem15Phut) AS Diem15Phut,      MIN(d.Diem1Tiet) AS Diem1Tiet,      MIN(d.DiemThi) AS DiemThi  FROM       Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv  WHERE       d.MaHocSinh = hs.MaHocSinh       AND d.MaHocKy = hk.MaHocKy       AND mh.MaMonHoc = d.MaMon  \tAND mh.MaMonHoc = gv.MaMon  \tAND gv.MaGiaoVien = '" + teachername + "' GROUP BY       d.MaDiem", conn);
-
-                }
-                else
-                {
-                    ham.HienThiDLDG(dataGridView1, "Select d.MaDiem as Mã,hs.HoTen, mh.TenMonHoc, hk.TenHocKy,d.DiemMieng ,d.Diem15Phut,d.Diem1Tiet,d.DiemThi from Diem d,HocSinh hs,HocKy hk,MonHoc mh where d.MaHocSinh = hs.MaHocSinh and d.MaHocKy = hk.MaHocKy and mh.MaMonHoc = d.MaMon;  ", conn);
-                }
+                string tuKhoa = txt_tim.Text;               
+                ham.HienThiDLDG(dataGridView1, "SELECT d.MaDiem AS Mã, MIN(hs.HoTen) AS HoTen, MIN(l.TenLop) AS Lop, MIN(hk.TenHocKy) AS TenHocKy, MIN(d.DiemMieng) AS DiemMieng, MIN(d.Diem15Phut) AS Diem15Phut, MIN(d.Diem1Tiet) AS Diem1Tiet, MIN(d.DiemThi) AS DiemThi  " +
+                               "FROM  Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv,Lop l  " +
+                               "WHERE l.MaLop = hs.MaLop " +
+                               "AND  d.MaHocSinh = hs.MaHocSinh " +
+                               "AND d.MaHocKy = hk.MaHocKy " +
+                               "AND mh.MaMonHoc = d.MaMon " +
+                               "AND  mh.MaMonHoc = gv.MaMon " +
+                               "AND gv.MaGiaoVien = '" + teachername + "' " +
+                                "AND (hs.MaHocSinh LIKE '%" + tuKhoa + "%' OR hs.HoTen LIKE '%" + tuKhoa + "%' OR hk.MaHocKy LIKE '%" + tuKhoa + "%') " +
+                               "GROUP BY  d.MaDiem", conn);
             }
         }
         private void btn_sua_Click(object sender, EventArgs e)
@@ -254,6 +255,7 @@ namespace QLHS
             string diem1t = txt_1t.Text;
             string diemthi = txt_thi.Text;
 
+            // Kiểm tra nhập vào đúng không
             try
             {
                 float diemMiengValue, diem15Value, diem1tValue, diemThiValue;
@@ -273,20 +275,22 @@ namespace QLHS
                 {
                     throw new Exception("Giá trị điểm nằm ngoài khoảng từ 0 đến 10.");
                 }
+                // Kết thúc kiểm tra
+
 
                 // Tiếp tục xử lý khi giá trị điểm hợp lệ
                 string query = $"UPDATE Diem SET MaHocSinh = '{maHocSinh}', MaMon = '{maMon}', MaHocKy = '{maHocKy}', DiemMieng = '{diemmieng}', Diem15Phut = '{diem15}', Diem1Tiet = '{diem1t}', DiemThi = '{diemthi}' WHERE MaDiem = '{maDiem}'";
                 ham.capnhat(query, conn);
-                if (Form_Home1.IsFormOpenedFromHome1)
-                {
-                    ham.HienThiDLDG(dataGridView1, "SELECT       d.MaDiem AS Mã,      MIN(hs.HoTen) AS HoTen,      MIN(mh.TenMonHoc) AS TenMonHoc,      MIN(hk.TenHocKy) AS TenHocKy,      MIN(d.DiemMieng) AS DiemMieng,      MIN(d.Diem15Phut) AS Diem15Phut,      MIN(d.Diem1Tiet) AS Diem1Tiet,      MIN(d.DiemThi) AS DiemThi  FROM       Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv  WHERE       d.MaHocSinh = hs.MaHocSinh       AND d.MaHocKy = hk.MaHocKy       AND mh.MaMonHoc = d.MaMon  \tAND mh.MaMonHoc = gv.MaMon  \tAND gv.MaGiaoVien = '" + teachername + "' GROUP BY       d.MaDiem", conn);
 
-                }
-                else
-                {
-                    ham.HienThiDLDG(dataGridView1, "Select d.MaDiem as Mã,hs.HoTen, mh.TenMonHoc, hk.TenHocKy,d.DiemMieng ,d.Diem15Phut,d.Diem1Tiet,d.DiemThi from Diem d,HocSinh hs,HocKy hk,MonHoc mh where d.MaHocSinh = hs.MaHocSinh and d.MaHocKy = hk.MaHocKy and mh.MaMonHoc = d.MaMon;  ", conn);
-                }
-
+                ham.HienThiDLDG(dataGridView1, "SELECT d.MaDiem AS Mã, MIN(hs.HoTen) AS HoTen, MIN(l.TenLop) AS Lop, MIN(hk.TenHocKy) AS TenHocKy, MIN(d.DiemMieng) AS DiemMieng, MIN(d.Diem15Phut) AS Diem15Phut, MIN(d.Diem1Tiet) AS Diem1Tiet, MIN(d.DiemThi) AS DiemThi  " +
+                            "FROM  Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv,Lop l  " +
+                            "WHERE l.MaLop = hs.MaLop " +
+                            "AND  d.MaHocSinh = hs.MaHocSinh " +
+                            "AND d.MaHocKy = hk.MaHocKy " +
+                            "AND mh.MaMonHoc = d.MaMon " +
+                            "AND  mh.MaMonHoc = gv.MaMon " +
+                            "AND gv.MaGiaoVien = '" + teachername + "' " +
+                            "GROUP BY  d.MaDiem", conn);
                 clearALL();
             }
             catch (FormatException ex)
@@ -304,20 +308,21 @@ namespace QLHS
             string maDiem = txt_ma_diem.Text;
             string query = "DELETE From Diem Where MaDiem = '" + maDiem + "'";
             ham.capnhat(query, conn);
-            if (Form_Home1.IsFormOpenedFromHome1)
-            {
-                ham.HienThiDLDG(dataGridView1, "SELECT       d.MaDiem AS Mã,      MIN(hs.HoTen) AS HoTen,      MIN(mh.TenMonHoc) AS TenMonHoc,      MIN(hk.TenHocKy) AS TenHocKy,      MIN(d.DiemMieng) AS DiemMieng,      MIN(d.Diem15Phut) AS Diem15Phut,      MIN(d.Diem1Tiet) AS Diem1Tiet,      MIN(d.DiemThi) AS DiemThi  FROM       Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv  WHERE       d.MaHocSinh = hs.MaHocSinh       AND d.MaHocKy = hk.MaHocKy       AND mh.MaMonHoc = d.MaMon  \tAND mh.MaMonHoc = gv.MaMon  \tAND gv.MaGiaoVien = '" + teachername + "' GROUP BY       d.MaDiem", conn);
 
-            }
-            else
-            {
-                ham.HienThiDLDG(dataGridView1, "Select d.MaDiem as Mã,hs.HoTen, mh.TenMonHoc, hk.TenHocKy,d.DiemMieng ,d.Diem15Phut,d.Diem1Tiet,d.DiemThi from Diem d,HocSinh hs,HocKy hk,MonHoc mh where d.MaHocSinh = hs.MaHocSinh and d.MaHocKy = hk.MaHocKy and mh.MaMonHoc = d.MaMon;  ", conn);
-            }
+            ham.HienThiDLDG(dataGridView1, "SELECT d.MaDiem AS Mã, MIN(hs.HoTen) AS HoTen, MIN(l.TenLop) AS Lop, MIN(hk.TenHocKy) AS TenHocKy, MIN(d.DiemMieng) AS DiemMieng, MIN(d.Diem15Phut) AS Diem15Phut, MIN(d.Diem1Tiet) AS Diem1Tiet, MIN(d.DiemThi) AS DiemThi  " +
+                        "FROM  Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv,Lop l  " +
+                        "WHERE l.MaLop = hs.MaLop " +
+                        "AND  d.MaHocSinh = hs.MaHocSinh " +
+                        "AND d.MaHocKy = hk.MaHocKy " +
+                        "AND mh.MaMonHoc = d.MaMon " +
+                        "AND  mh.MaMonHoc = gv.MaMon " +
+                        "AND gv.MaGiaoVien = '" + teachername + "' " +
+                        "GROUP BY  d.MaDiem", conn);
             clearALL();
         }
         public void clearALL()
         {
-           
+           // hàm làm mới
             cb_mahs.SelectedValue = "";
             cb_mon.SelectedValue = "";
             cb_hoc_ky.SelectedValue = "";
@@ -328,39 +333,39 @@ namespace QLHS
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {         
-                txt_ma_diem.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+        {
+            // lấy tên môn gắn vào combobox khi click vào dataGridView vì dataGridView không hiện cột tên môn
+            string temon = "SELECT mh.TenMonHoc FROM GiaoVien gv, MonHoc mh Where gv.MaMon = mh.MaMonHoc And gv.MaGiaoVien ='" + teachername + "'";
+            SqlCommand comd = new SqlCommand(temon, conn);
+            SqlDataReader reader = comd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                string tenMonHoc = reader["TenMonHoc"].ToString();
+                cb_mon.Text = tenMonHoc;
+            }
+            reader.Close();
+
+            
+                 txt_ma_diem.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 cb_mahs.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                cb_mon.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(); ;
+                cb_lop.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 cb_hoc_ky.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txt_mieng.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txt_15p.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                 txt_1t.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
                 txt_thi.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-  
+
+          
         }
 
-
+        // Hàm đặt lại
         private void btn_clear_Click(object sender, EventArgs e)
         {
             clearALL();
         }
 
-        private void cb_mon_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        
     }
 }
 

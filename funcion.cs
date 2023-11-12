@@ -24,7 +24,7 @@ namespace QLHS
         {
             if (conn.State != ConnectionState.Open)
             {
-                string chuoiketnoi = "SERVER=asus; database=QuanLiDiem; Integrated Security=true";
+                string chuoiketnoi = "SERVER=OLONG-TEA-PLUS; database=QuanLiDiem; Integrated Security=true";
                 conn.ConnectionString = chuoiketnoi;
                 conn.Open();
             }
