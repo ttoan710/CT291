@@ -60,13 +60,13 @@ namespace QLHS
                                "AND mh.MaMonHoc = d.MaMon " +
                                "AND  mh.MaMonHoc = gv.MaMon " +
                                "AND gv.MaGiaoVien = '" + teachername + "' " +
-                               "GROUP BY  d.MaDiem", conn); 
+                               "GROUP BY  d.MaDiem", conn);
 
             ham.HienThiDLComb(cb_hoc_ky, "SELECT MAHOCKY, TENHOCKY FROM HOCKY", conn, "TENHOCKY", "MAHOCKY");
-               
+
             ham.HienThiDLComb(cb_mahs, "SELECT MaHocSinh, HoTen FROM HocSinh", conn, "HoTen", "MaHocSinh");
 
-            ham.HienThiDLComb(cb_lop, "SELECT l.TenLop, l.MaLop FROM Lop l" , conn, "TenLop", "MaLop");
+            ham.HienThiDLComb(cb_lop, "SELECT l.TenLop, l.MaLop FROM Lop l", conn, "TenLop", "MaLop");
 
             ham.HienThiDLComb(cb_mon, "SELECT mh.MaMonHoc, mh.TenMonHoc " +
                 "FROM MonHoc mh,GiaoVien gv " +
@@ -106,6 +106,9 @@ namespace QLHS
             }
 
         }
+
+        
+
 
         private void btn_them_Click(object sender, EventArgs e)
         {
@@ -240,7 +243,7 @@ namespace QLHS
                                "AND mh.MaMonHoc = d.MaMon " +
                                "AND  mh.MaMonHoc = gv.MaMon " +
                                "AND gv.MaGiaoVien = '" + teachername + "' " +
-                                "AND (hs.MaHocSinh LIKE '%" + tuKhoa + "%' OR hs.HoTen LIKE '%" + tuKhoa + "%' OR hk.MaHocKy LIKE '%" + tuKhoa + "%') " +
+                                "AND (hs.MaHocSinh LIKE '%" + tuKhoa + "%' OR hs.HoTen LIKE '%" + tuKhoa + "%' OR hk.TenHocKy LIKE '%" + tuKhoa + "%' OR l.TenLop LIKE '%" + tuKhoa + "%') " +
                                "GROUP BY  d.MaDiem", conn);
             }
         }

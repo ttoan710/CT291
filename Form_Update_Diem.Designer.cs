@@ -44,12 +44,14 @@ namespace QLHS
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.cb_lop = new System.Windows.Forms.ComboBox();
             this.cb_hoc_ky = new System.Windows.Forms.ComboBox();
             this.cb_mon = new System.Windows.Forms.ComboBox();
             this.cb_mahs = new System.Windows.Forms.ComboBox();
             this.txt_thi = new System.Windows.Forms.TextBox();
             this.txt_1t = new System.Windows.Forms.TextBox();
             this.txt_15p = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.txt_mieng = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,8 +65,6 @@ namespace QLHS
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_tim = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cb_lop = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -210,6 +210,15 @@ namespace QLHS
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
+            // cb_lop
+            // 
+            this.cb_lop.FormattingEnabled = true;
+            this.cb_lop.Location = new System.Drawing.Point(125, 90);
+            this.cb_lop.Margin = new System.Windows.Forms.Padding(2);
+            this.cb_lop.Name = "cb_lop";
+            this.cb_lop.Size = new System.Drawing.Size(117, 21);
+            this.cb_lop.TabIndex = 3;
+            // 
             // cb_hoc_ky
             // 
             this.cb_hoc_ky.FormattingEnabled = true;
@@ -266,6 +275,17 @@ namespace QLHS
             this.txt_15p.Size = new System.Drawing.Size(117, 21);
             this.txt_15p.TabIndex = 5;
             this.txt_15p.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label10.Location = new System.Drawing.Point(17, 96);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 15);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Tên Lớp";
             // 
             // txt_mieng
             // 
@@ -412,26 +432,6 @@ namespace QLHS
             this.txt_tim.Size = new System.Drawing.Size(117, 21);
             this.txt_tim.TabIndex = 4;
             this.txt_tim.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_tim_KeyDown);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label10.Location = new System.Drawing.Point(17, 96);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 15);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "Tên Lớp";
-            // 
-            // cb_lop
-            // 
-            this.cb_lop.FormattingEnabled = true;
-            this.cb_lop.Location = new System.Drawing.Point(125, 90);
-            this.cb_lop.Margin = new System.Windows.Forms.Padding(2);
-            this.cb_lop.Name = "cb_lop";
-            this.cb_lop.Size = new System.Drawing.Size(117, 21);
-            this.cb_lop.TabIndex = 3;
             // 
             // Form_Update_Diem
             // 

@@ -50,6 +50,19 @@ namespace QLHS
             comb.DisplayMember = hienthi;
             comb.ValueMember = giatri;
         }
+
+        public void HienThiDLCombLop(ComboBox comb, string sql, SqlConnection conn, string hienthi, string giatri, string hienthilop)
+        {
+            SqlCommand comd = new SqlCommand(sql, conn);
+            SqlDataReader reader = comd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(reader);
+
+            comb.DataSource = table;
+            comb.DisplayMember = hienthi + "  " + hienthilop;
+            comb.ValueMember = giatri;
+        }
+
         public void capnhat(string sql, SqlConnection conn)
         {
             MessageBox.Show(sql);

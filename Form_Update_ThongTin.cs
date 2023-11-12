@@ -156,6 +156,18 @@ namespace QLHS
         private void btn_xoa_Click(object sender, EventArgs e)
         {
             string ma = txt_ma_hs.Text;
+            // Kiểm tra xem học sinh đã tồn tại trong cơ sở dữ liệu  DIEM chưa
+            string checkQuery = $"SELECT COUNT(*) FROM Diem WHERE MaHocSinh = '{ma}'";
+            SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+            int existingCount = (int)checkCmd.ExecuteScalar();
+            if (existingCount > 0)
+            {
+                MessageBox.Show("Học sinh đang có điểm, không thể xóa. Vui lòng xóa điểm trước", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            // Kết thúc kiểm tra
+
+
             string sql_xoa = "DELETE FROM HocSinh WHERE MaHocSinh ='" + ma + "'";
             ham.capnhat(sql_xoa, conn);
             ham.HienThiDLDG(dataGridView1, "SELECT distinct hs.MaHocSinh,hs.HoTen, hs.NgaySinh, hs.GioiTinh, hs.MatKhau " +
