@@ -48,7 +48,7 @@ namespace QLHS
 
         private void Form_Update_Diem_Load(object sender, EventArgs e)
         {
-
+            cb_mon.Enabled = false;
             ham.connect(conn);
             txt_ma_diem.Enabled = false;
             cb_lop.Enabled = false;
