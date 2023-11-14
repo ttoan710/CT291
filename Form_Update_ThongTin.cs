@@ -87,7 +87,7 @@ namespace QLHS
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-            string malonnhat = "SELECT MAX (SUBSTRING(MaHocSinh,5,2)) FROM HocSinh";
+            string malonnhat = "SELECT MAX (SUBSTRING(MaHocSinh,3,3)) FROM HocSinh";
             SqlCommand comd = new SqlCommand(malonnhat, conn);
             SqlDataReader reader = comd.ExecuteReader();
 
@@ -225,7 +225,7 @@ namespace QLHS
                     "Where hs.MaLop = l.MaLop " +
                     "AND gv.MaLop = L.MaLop " +
                     "AND gv.MaGiaoVien = '" + teachername + "'" +
-                    " AND (hs.MaHocSinh LIKE '%" + tuKhoa + "%' OR hs.HoTen LIKE '%" + tuKhoa + "%' ) ";
+                    " AND (hs.MaHocSinh LIKE '%" + tuKhoa + "%' OR hs.HoTen LIKE '%" + tuKhoa + "%' OR hs.GioiTinh LIKE '%" + tuKhoa + "%' OR hs.NgaySinh LIKE '%" + tuKhoa + "%' ) ";
                 ham.HienThiDLDG(dataGridView1, sql_tim, conn);
             }
         }

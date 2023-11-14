@@ -65,16 +65,18 @@ namespace QLHS
 
         public void capnhat(string sql, SqlConnection conn)
         {
-            MessageBox.Show(sql);
+             
             SqlCommand comd = new SqlCommand(sql, conn);
             try
             {
                 comd.ExecuteNonQuery();
+                MessageBox.Show("Cập nhật dữ liệu thành công");
             }
             catch (Exception e)
             {
                 MessageBox.Show("your query is :" + sql + " with the error is " + e.Message);
             }
+
         }
 
 

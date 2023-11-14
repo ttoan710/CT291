@@ -51,7 +51,7 @@ namespace QLHS
 
             ham.connect(conn);
             txt_ma_diem.Enabled = false;
-
+            cb_lop.Enabled = false;
             ham.HienThiDLDG(dataGridView1, "SELECT d.MaDiem AS Mã, MIN(hs.HoTen) AS HoTen, MIN(l.TenLop) AS Lop, MIN(hk.TenHocKy) AS TenHocKy, MIN(d.DiemMieng) AS DiemMieng, MIN(d.Diem15Phut) AS Diem15Phut, MIN(d.Diem1Tiet) AS Diem1Tiet, MIN(d.DiemThi) AS DiemThi  " +
                                "FROM  Diem d, HocSinh hs, HocKy hk, MonHoc mh, GiaoVien gv,Lop l  " +
                                "WHERE l.MaLop = hs.MaLop " +
@@ -329,10 +329,10 @@ namespace QLHS
             cb_mahs.SelectedValue = "";
             cb_mon.SelectedValue = "";
             cb_hoc_ky.SelectedValue = "";
-            txt_thi.Text = "";
-            txt_15p.Text = "";
-            txt_1t.Text = "";
-            txt_mieng.Text = "";
+            txt_thi.Text = "0";
+            txt_15p.Text = "0";
+            txt_1t.Text = "0";
+            txt_mieng.Text = "0";
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
