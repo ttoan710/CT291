@@ -70,14 +70,30 @@ namespace QLHS
             string hk = cb_hk.Text;
             if (hk == hk1)
             {
-                ham.HienThiDLDG(dataGridView1, "SELECT        MonHoc.TenMonHoc,  HocKy.TenHocKy,    Diem.DiemMieng,      Diem.Diem15Phut,       Diem.Diem1Tiet,      Diem.DiemThi,         ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh FROM Diem INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc,HocKy WHERE Diem.MaHocKy = HocKy.MaHocKy AND Diem.MaHocKy = 'HK001' AND Diem.MaHocSinh = '"+username+"' GROUP BY Diem.MaDiem,HocKy.TenHocKy, MonHoc.TenMonHoc, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi\r\n", conn);
-                string sql = "SELECT ROUND(AVG(DiemTrungBinh), 2) AS DiemTrungBinhTong,    CASE       WHEN ROUND(AVG(DiemTrungBinh), 2) >= 9 THEN N'Xuất sắc'      WHEN ROUND(AVG(DiemTrungBinh), 2) >= 8 AND ROUND(AVG(DiemTrungBinh), 2) < 9 THEN N'Giỏi'       WHEN ROUND(AVG(DiemTrungBinh), 2) >= 7 AND ROUND(AVG(DiemTrungBinh), 2) < 8 THEN N'Khá'      WHEN ROUND(AVG(DiemTrungBinh), 2) >= 5 AND ROUND(AVG(DiemTrungBinh), 2) < 7 THEN N'Trung bình'       ELSE N'Yếu'   END AS HocLuc FROM (    SELECT (DiemMieng + Diem15Phut + Diem1Tiet * 2 + DiemThi * 3) / 7 AS DiemTrungBinh   FROM Diem   WHERE Diem.MaHocKy = 'HK001' AND MaHocSinh = '" + username + "') AS DiemTrungBinhCacMon";
+                ham.HienThiDLDG(dataGridView1, "SELECT        MonHoc.TenMonHoc,  c    Diem.DiemMieng,      Diem.Diem15Phut,       Diem.Diem1Tiet,      Diem.DiemThi,         ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh " +
+                    "FROM Diem INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc, HocKy" +
+                    " WHERE Diem.MaHocKy = HocKy.MaHocKy " +
+                    "AND Diem.MaHocKy = 'HK001' " +
+                    "AND Diem.MaHocSinh = '"+username+ "' " +
+                    "GROUP BY Diem.MaDiem,HocKy.TenHocKy, MonHoc.TenMonHoc, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi " +
+                    "ORDER BY hk.TenHocKy", conn);
+                
+                string sql = "SELECT ROUND(AVG(DiemTrungBinh), 2) AS DiemTrungBinhTong,   " +
+                    " CASE  " +
+                    "WHEN ROUND(AVG(DiemTrungBinh), 2) >= 9 THEN N'Xuất sắc'      " +
+                    "WHEN ROUND(AVG(DiemTrungBinh), 2) >= 8 AND ROUND(AVG(DiemTrungBinh), 2) < 9 THEN N'Giỏi' " +
+                    "WHEN ROUND(AVG(DiemTrungBinh), 2) >= 7 AND ROUND(AVG(DiemTrungBinh), 2) < 8 THEN N'Khá' " +
+                    "WHEN ROUND(AVG(DiemTrungBinh), 2) >= 5 AND ROUND(AVG(DiemTrungBinh), 2) < 7 THEN N'Trung bình'       " +
+                    "ELSE N'Yếu'   " +
+                    "END AS HocLuc " +
+                    "FROM ( SELECT (DiemMieng + Diem15Phut + Diem1Tiet * 2 + DiemThi * 3) / 7 AS DiemTrungBinh   " +
+                    "FROM Diem   WHERE Diem.MaHocKy = 'HK001' AND MaHocSinh = '" + username + "') AS DiemTrungBinhCacMon";
                 ham.HienThiDLDG(dataGridView_xl, sql, conn);
             }
             else if (hk == hk2)
             {
 
-                ham.HienThiDLDG(dataGridView1, "SELECT        MonHoc.TenMonHoc,  HocKy.TenHocKy,    Diem.DiemMieng,      Diem.Diem15Phut,       Diem.Diem1Tiet,      Diem.DiemThi,         ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh FROM Diem INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc,HocKy WHERE Diem.MaHocKy = HocKy.MaHocKy AND Diem.MaHocKy = 'HK002' AND Diem.MaHocSinh = '" + username + "' GROUP BY Diem.MaDiem,HocKy.TenHocKy, MonHoc.TenMonHoc, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi;", conn);
+                ham.HienThiDLDG(dataGridView1, "SELECT        MonHoc.TenMonHoc,  HocKy.TenHocKy,    Diem.DiemMieng,      Diem.Diem15Phut,       Diem.Diem1Tiet,      Diem.DiemThi,         ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh FROM Diem INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc,HocKy WHERE Diem.MaHocKy = HocKy.MaHocKy AND Diem.MaHocKy = 'HK002' AND Diem.MaHocSinh = '" + username + "' GROUP BY Diem.MaDiem,HocKy.TenHocKy, MonHoc.TenMonHoc, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi ORDER BY hk.TenHocKy", conn);
                 string sql = "SELECT ROUND(AVG(DiemTrungBinh), 2) AS DiemTrungBinhTong,    CASE       WHEN ROUND(AVG(DiemTrungBinh), 2) >= 9 THEN N'Xuất sắc'      WHEN ROUND(AVG(DiemTrungBinh), 2) >= 8 AND ROUND(AVG(DiemTrungBinh), 2) < 9 THEN N'Giỏi'       WHEN ROUND(AVG(DiemTrungBinh), 2) >= 7 AND ROUND(AVG(DiemTrungBinh), 2) < 8 THEN N'Khá'      WHEN ROUND(AVG(DiemTrungBinh), 2) >= 5 AND ROUND(AVG(DiemTrungBinh), 2) < 7 THEN N'Trung bình'       ELSE N'Yếu'   END AS HocLuc FROM (    SELECT (DiemMieng + Diem15Phut + Diem1Tiet * 2 + DiemThi * 3) / 7 AS DiemTrungBinh   FROM Diem   WHERE Diem.MaHocKy = 'HK002' AND MaHocSinh = '" + username + "') AS DiemTrungBinhCacMon";
                 ham.HienThiDLDG(dataGridView_xl, sql, conn);
 
@@ -86,7 +102,7 @@ namespace QLHS
             {
 
                 //   ham.HienThiDLDG(dataGridView1, "SELECT        MonHoc.TenMonHoc,  HocKy.TenHocKy,    Diem.DiemMieng,      Diem.Diem15Phut,       Diem.Diem1Tiet,      Diem.DiemThi,         ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh FROM Diem INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc,HocKy WHERE Diem.MaHocKy = HocKy.MaHocKy AND Diem.MaHocKy = 'HK001' AND Diem.MaHocSinh = 'HS001' GROUP BY Diem.MaDiem,HocKy.TenHocKy, MonHoc.TenMonHoc, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi  UNION ALL SELECT        MonHoc.TenMonHoc,  HocKy.TenHocKy,    Diem.DiemMieng,      Diem.Diem15Phut,       Diem.Diem1Tiet,      Diem.DiemThi,         ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh FROM Diem INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc,HocKy WHERE Diem.MaHocKy = HocKy.MaHocKy AND Diem.MaHocKy = 'HK002' AND Diem.MaHocSinh = 'HS001' GROUP BY Diem.MaDiem,HocKy.TenHocKy, MonHoc.TenMonHoc, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi", conn);
-                ham.HienThiDLDG(dataGridView1, "SELECT        MonHoc.TenMonHoc,  HocKy.TenHocKy,    Diem.DiemMieng,      Diem.Diem15Phut,       Diem.Diem1Tiet,      Diem.DiemThi,         ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh FROM Diem INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc,HocKy WHERE Diem.MaHocKy = HocKy.MaHocKy AND (Diem.MaHocKy = 'HK001' OR Diem.MaHocKy = 'HK002') AND Diem.MaHocSinh = '"+username+"' GROUP BY Diem.MaDiem,HocKy.TenHocKy, MonHoc.TenMonHoc, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi", conn);
+                ham.HienThiDLDG(dataGridView1, "SELECT        MonHoc.TenMonHoc,  HocKy.TenHocKy,    Diem.DiemMieng,      Diem.Diem15Phut,       Diem.Diem1Tiet,      Diem.DiemThi,         ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh FROM Diem INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc,HocKy WHERE Diem.MaHocKy = HocKy.MaHocKy AND (Diem.MaHocKy = 'HK001' OR Diem.MaHocKy = 'HK002') AND Diem.MaHocSinh = '"+username+ "' GROUP BY Diem.MaDiem,HocKy.TenHocKy, MonHoc.TenMonHoc, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi ORDER BY hk.TenHocKy", conn);
                 string sql = "SELECT ROUND((SubjectAverage1.DiemTrungBinh +SubjectAverage2.DiemTrungBinh * 2 )/3 , 2) AS DiemTrungBinhTong,CASE       WHEN ROUND((SubjectAverage1 .DiemTrungBinh +SubjectAverage2.DiemTrungBinh * 2 )/3 , 2) >= 9 THEN N'Xuất sắc'      WHEN ROUND((SubjectAverage1 .DiemTrungBinh +SubjectAverage2.DiemTrungBinh * 2 )/3 , 2) >= 8 AND ROUND((SubjectAverage1 .DiemTrungBinh +SubjectAverage2.DiemTrungBinh * 2 )/3 , 2) < 9 THEN N'Giỏi'       WHEN ROUND((SubjectAverage1 .DiemTrungBinh +SubjectAverage2.DiemTrungBinh * 2 )/3 , 2) >= 7 AND ROUND((SubjectAverage1 .DiemTrungBinh +SubjectAverage2.DiemTrungBinh * 2 )/3 , 2) < 8 THEN N'Khá'      WHEN ROUND((SubjectAverage1 .DiemTrungBinh +SubjectAverage2.DiemTrungBinh * 2 )/3 , 2) >= 5 AND ROUND((SubjectAverage1 .DiemTrungBinh +SubjectAverage2.DiemTrungBinh * 2 )/3 , 2) < 7 THEN N'Trung bình'       ELSE N'Yếu'   END AS HocLuc FROM ( SELECT ROUND(AVG(DiemTrungBinh), 2) AS DiemTrungBinh FROM (    SELECT (DiemMieng + Diem15Phut + Diem1Tiet * 2 + DiemThi * 3) / 7 AS DiemTrungBinh   FROM Diem   WHERE Diem.MaHocKy = 'HK001' AND MaHocSinh = '"+username+"') AS DiemTrungBinhCacMon ) AS SubjectAverage1, ( SELECT ROUND(AVG(DiemTrungBinh), 2) AS DiemTrungBinh FROM (    SELECT (DiemMieng + Diem15Phut + Diem1Tiet * 2 + DiemThi * 3) / 7 AS DiemTrungBinh   FROM Diem   WHERE Diem.MaHocKy = 'HK002' AND MaHocSinh = '"+username+"') AS DiemTrungBinhCacMon ) AS SubjectAverage2; ";
                 ham.HienThiDLDG(dataGridView_xl, sql, conn);
             }
@@ -118,7 +134,6 @@ namespace QLHS
             string phanHoi = tb_gui.Text;
             string sql_gui = "INSERT INTO PHANHOI (MaPhanHoi, MaHocSinh, PhanHoi) VALUES ('" + maPhanHoi + "', '" + username + "', N'" + phanHoi + "')";
             ham.capnhat(sql_gui, conn);
-            MessageBox.Show("Đã gửi thành công");
             tb_gui.Text = "";
         }
 

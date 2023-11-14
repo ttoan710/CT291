@@ -227,7 +227,7 @@ namespace QLHS
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            MessageBox.Show("Cập nhật dữ liệu thành công");
         }
 
         private void txt_tim_KeyDown(object sender, KeyEventArgs e)
@@ -304,6 +304,7 @@ namespace QLHS
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            MessageBox.Show("Sửa dữ liệu thành công");
         }
 
         private void btn_xoa_Click(object sender, EventArgs e)
@@ -322,6 +323,7 @@ namespace QLHS
                         "AND gv.MaGiaoVien = '" + teachername + "' " +
                         "GROUP BY  d.MaDiem", conn);
             clearALL();
+            MessageBox.Show("Xóa dữ liệu thành công");
         }
         public void clearALL()
         {

@@ -70,7 +70,7 @@ namespace QLHS
             try
             {
                 comd.ExecuteNonQuery();
-                MessageBox.Show("Cập nhật dữ liệu thành công");
+            
             }
             catch (Exception e)
             {

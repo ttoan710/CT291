@@ -108,13 +108,18 @@ namespace QLHS
                else if (hk == hk1 && lop != maLop)
                 {   
                     // Nếu không phải lớp mình chủ nhiệm thì chỉ hiện ra điểm môn mình có dạy 
-                      ham.HienThiDLDG(dataGridView1, "SELECT HocSinh.HoTen, MonHoc.TenMonHoc,Lop.TenLop, HocKy.TenHocKy, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi, ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh   " +
-                          "FROM Diem   INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc   " +
-                          "INNER JOIN HocKy ON Diem.MaHocKy = HocKy.MaHocKy   INNER JOIN HocSinh ON HocSinh.MaHocSinh = Diem.MaHocSinh   " +
-                          "INNER JOIN GiaoVien ON GiaoVien.MaMon = Diem.MaMon   INNER JOIN Lop ON GiaoVien.MaLop = Lop.MaLop   WHERE Diem.MaHocKy = 'HK001'   " +
-                          "AND GiaoVien.MaGiaoVien = '"+teachername+"'   AND Lop.MaLop = '"+lop+"'  " +
-                          "GROUP BY Lop.TenLop,HocSinh.HoTen, MonHoc.TenMonHoc, HocKy.TenHocKy, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi   " +
-                          "ORDER BY HocKy.TenHocKy", conn);
+                      ham.HienThiDLDG(dataGridView1, "Select hs.HoTen, mh.TenMonHoc, l.TenLop, hk.TenHocKy, d.DiemMieng ,d.Diem15Phut, d.Diem1Tiet,d.DiemThi,ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh    " +
+                          "from Diem d, HocSinh hs, GiaoVien gv, Lop l, HocKy hk, MonHoc mh " +
+                          "where d.MaHocSinh = hs.MaHocSinh " +
+                          "and gv.MaMon = d.MaMon " +
+                          "and hs.MaLop = l.MaLop " +
+                          "and d.MaMon = mh.MaMonHoc " +
+                          "and d.MaHocKy = hk.MaHocKy " +
+                          "and hs.MaLop = '"+lop+"' " +
+                          "and d.MaHocKy = 'HK001' " +
+                          "and gv.MaGiaoVien = '"+teachername+"' " +
+                          "GROUP BY hs.HoTen, mh.TenMonHoc, l.TenLop, hk.TenHocKy, d.DiemMieng ,d.Diem15Phut, d.Diem1Tiet,d.DiemThi    " +
+                          "ORDER BY hk.TenHocKy", conn);
                 }
                 else if (hk == hk2 && lop == maLop)
                  {
@@ -122,9 +127,9 @@ namespace QLHS
                 }
                 else if (hk == hk2 && lop != maLop)
                  {
-                    ham.HienThiDLDG(dataGridView1, "SELECT HocSinh.HoTen, MonHoc.TenMonHoc,Lop.TenLop, HocKy.TenHocKy, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi, ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh   FROM Diem   INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc   INNER JOIN HocKy ON Diem.MaHocKy = HocKy.MaHocKy   INNER JOIN HocSinh ON HocSinh.MaHocSinh = Diem.MaHocSinh   INNER JOIN GiaoVien ON GiaoVien.MaMon = Diem.MaMon   INNER JOIN Lop ON GiaoVien.MaLop = Lop.MaLop   WHERE Diem.MaHocKy = 'HK002'   AND GiaoVien.MaGiaoVien = '"+teachername+ "'   AND Lop.MaLop = '"+lop+"'  GROUP BY Lop.TenLop,HocSinh.HoTen, MonHoc.TenMonHoc, HocKy.TenHocKy, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi   ORDER BY HocKy.TenHocKy", conn);
-                  }
-                 else if(hk == "Tất cả")
+                    ham.HienThiDLDG(dataGridView1, "Select hs.HoTen, mh.TenMonHoc, l.TenLop, hk.TenHocKy, d.DiemMieng ,d.Diem15Phut, d.Diem1Tiet,d.DiemThi,ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh    from Diem d, HocSinh hs, GiaoVien gv, Lop l, HocKy hk, MonHoc mh where d.MaHocSinh = hs.MaHocSinh and gv.MaMon = d.MaMon and hs.MaLop = l.MaLop and d.MaMon = mh.MaMonHoc and d.MaHocKy = hk.MaHocKy and hs.MaLop = '"+lop+"' and d.MaHocKy = 'HK002' and gv.MaGiaoVien = '"+teachername+"' GROUP BY hs.HoTen, mh.TenMonHoc, l.TenLop, hk.TenHocKy, d.DiemMieng ,d.Diem15Phut, d.Diem1Tiet,d.DiemThi    ORDER BY hk.TenHocKy", conn);
+                }
+                else if(hk == "Tất cả")
                   {
                   if(lop == maLop)
                     {
@@ -142,19 +147,18 @@ namespace QLHS
 
                     else
                     {
-                        ham.HienThiDLDG(dataGridView1, "SELECT HocSinh.HoTen, MonHoc.TenMonHoc,Lop.TenLop, HocKy.TenHocKy, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi, ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh   " +
-                            "FROM Diem   " +
-                            "INNER JOIN MonHoc ON Diem.MaMon = MonHoc.MaMonHoc   " +
-                            "INNER JOIN HocKy ON Diem.MaHocKy = HocKy.MaHocKy   " +
-                            "INNER JOIN HocSinh ON HocSinh.MaHocSinh = Diem.MaHocSinh   " +
-                            "INNER JOIN GiaoVien ON GiaoVien.MaMon = Diem.MaMon   " +
-                            "INNER JOIN Lop ON GiaoVien.MaLop = Lop.MaLop   " +
-                            "WHERE (Diem.MaHocKy = 'HK001' OR Diem.MaHocKy = 'HK002') " +
-                            "AND  Lop.MaLop = '" + lop + "'  " +
-                           " AND GiaoVien.MaGiaoVien = '" + teachername+ "' " +
-                            "GROUP BY Lop.TenLop,HocSinh.HoTen, MonHoc.TenMonHoc, HocKy.TenHocKy, Diem.DiemMieng, Diem.Diem15Phut, Diem.Diem1Tiet, Diem.DiemThi   " +
-                            "ORDER BY HocKy.TenHocKy", conn);
-
+                        ham.HienThiDLDG(dataGridView1, "Select hs.HoTen, mh.TenMonHoc, l.TenLop, hk.TenHocKy, d.DiemMieng ,d.Diem15Phut, d.Diem1Tiet,d.DiemThi,ROUND( AVG((DiemMieng + Diem15Phut + Diem1Tiet*2 + DiemThi*3) / 7),2) AS DiemTrungBinh    " +
+                            "from Diem d, HocSinh hs, GiaoVien gv, Lop l, HocKy hk, MonHoc mh " +
+                            "where d.MaHocSinh = hs.MaHocSinh " +
+                            "and gv.MaMon = d.MaMon " +
+                            "and hs.MaLop = l.MaLop " +
+                            "and d.MaMon = mh.MaMonHoc " +
+                            "and d.MaHocKy = hk.MaHocKy" +
+                            " and hs.MaLop = '"+lop+"' " +
+                            "and (d.MaHocKy = 'HK001' or d.MaHocKy = 'HK002') " +
+                            "and gv.MaGiaoVien = '"+teachername+ "' " +
+                            "GROUP BY hs.HoTen, mh.TenMonHoc, l.TenLop, hk.TenHocKy, d.DiemMieng ,d.Diem15Phut, d.Diem1Tiet,d.DiemThi   " +
+                            "ORDER BY hk.TenHocKy", conn);
                     }
 
                  }

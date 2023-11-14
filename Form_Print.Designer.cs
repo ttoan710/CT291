@@ -114,7 +114,6 @@
             this.cb_lop.Size = new System.Drawing.Size(98, 21);
             this.cb_lop.TabIndex = 3;
             this.cb_lop.Text = "Chọn lớp";
-          //  this.cb_lop.SelectedIndexChanged += new System.EventHandler(this.cb_hk_SelectedIndexChanged);
             // 
             // btn_hk
             // 
@@ -141,13 +140,12 @@
             this.groupBox3.Size = new System.Drawing.Size(131, 429);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
-         //   this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox4.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.Info;
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox4.Location = new System.Drawing.Point(21, 29);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
@@ -165,7 +163,6 @@
             this.cb_hk.Size = new System.Drawing.Size(98, 21);
             this.cb_hk.TabIndex = 3;
             this.cb_hk.Text = "Chọn học kỳ";
-          //  this.cb_hk.SelectedIndexChanged += new System.EventHandler(this.cb_hk_SelectedIndexChanged);
             // 
             // Form_Print
             // 

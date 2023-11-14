@@ -28,7 +28,7 @@ namespace QLHS
         private void Form_Lich_Giang_Day_Load(object sender, EventArgs e)
         {
             ham.connect(conn);
-            ham.HienThiDLDG(dataGridView1, " SELECT pc.MaPhanCong, gv.HoTen, mh.TenMonHoc, l.TenLop   " +
+            ham.HienThiDLDG(dataGridView1, " SELECT pc.MaPhanCong, gv.HoTen, mh.TenMonHoc, l.TenLop as LopCN  " +
                 " FROM PhanCong pc, GiaoVien gv, MonHoc mh, Lop l " +
                 "where pc.MaGiaoVien = gv.MaGiaoVien " +
                 "AND gv.MaMon = mh.MaMonHoc " +

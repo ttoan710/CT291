@@ -93,14 +93,13 @@ namespace QLHS
             this.groupBox1.Size = new System.Drawing.Size(487, 329);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-         //   this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button1
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.Location = new System.Drawing.Point(423, 272);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(53, 47);
             this.button1.TabIndex = 35;
@@ -111,7 +110,7 @@ namespace QLHS
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(601, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 18);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -126,7 +125,6 @@ namespace QLHS
             this.txt_tim.Name = "txt_tim";
             this.txt_tim.Size = new System.Drawing.Size(131, 21);
             this.txt_tim.TabIndex = 30;
-          //  this.txt_tim.TextChanged += new System.EventHandler(this.txt_tim_TextChanged);
             this.txt_tim.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_tim_KeyDown);
             // 
             // groupBox2
@@ -148,9 +146,9 @@ namespace QLHS
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox2.Location = new System.Drawing.Point(27, 111);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(262, 329);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
@@ -162,9 +160,9 @@ namespace QLHS
             this.groupBox4.Controls.Add(this.btn_xoa);
             this.groupBox4.Controls.Add(this.btn_them);
             this.groupBox4.Location = new System.Drawing.Point(33, 215);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(187, 95);
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
@@ -343,9 +341,9 @@ namespace QLHS
             this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Info;
             this.groupBox3.Location = new System.Drawing.Point(27, 5);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(775, 87);
             this.groupBox3.TabIndex = 34;
             this.groupBox3.TabStop = false;
@@ -356,7 +354,7 @@ namespace QLHS
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.ForeColor = System.Drawing.SystemColors.Info;
-            this.label1.Location = new System.Drawing.Point(121, 32);
+            this.label1.Location = new System.Drawing.Point(108, 39);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(417, 35);

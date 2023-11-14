@@ -130,6 +130,7 @@ namespace QLHS
                            "FROM HocSinh hs, Lop l,GiaoVien gv " +
                            "Where hs.MaLop = l.MaLop " +
                            "AND gv.MaLop = L.MaLop AND gv.MaGiaoVien = '" + teachername + "'", conn);
+            MessageBox.Show("Cập nhật dữ liệu thành công");
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
@@ -146,6 +147,7 @@ namespace QLHS
                            "FROM HocSinh hs, Lop l,GiaoVien gv " +
                            "Where hs.MaLop = l.MaLop " +
                            "AND gv.MaLop = L.MaLop AND gv.MaGiaoVien = '" + teachername + "'", conn); btn_them.Enabled = true;
+            MessageBox.Show("Sửa dữ liệu thành công");
         }
 
         private void btn_dat_Click(object sender, EventArgs e)
@@ -176,6 +178,7 @@ namespace QLHS
                            "AND gv.MaLop = L.MaLop AND gv.MaGiaoVien = '" + teachername + "'", conn);
             clearALL();
             btn_them.Enabled = true;
+            MessageBox.Show("Xóa dữ liệu thành công");
         }
 
 
